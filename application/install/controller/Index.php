@@ -18,7 +18,7 @@ class Index extends Controller
     protected function initialize()
     {
 		if(is_file( App::getRootPath(). 'application/install/install.lock')) {
-		    header("Location: /index.php");
+		    header("Location: /");
 		    exit;
 	    }
     }
@@ -189,7 +189,7 @@ class Index extends Controller
                     try {
                         Db::execute($v);
                     } catch(\Exception $e) {
-                        return $this->error('导入SQL失败，请检查install.sql的语句是否正确。'. $e);
+                        dump('导入SQL失败，请检查install.sql的语句是否正确。'. $e);
                     }
                 }
             }
@@ -197,7 +197,7 @@ class Index extends Controller
         // 注册管理员账号
         $data = [
             'username' => $param['username'],
-            'password' => md5($param['password'].config('site.salt')),
+            'password' => $param['password'].config('site.salt'),
             'last_login_time' => time(),
             'last_login_ip' => $this->request->ip(),
         ];
@@ -298,7 +298,7 @@ class Index extends Controller
             ['gzopen', '支持', 'yes', '函数'],
         ];
 
-        if(version_compare(PHP_VERSION,'5.6.0','ge') && version_compare(PHP_VERSION,'5.7.0','lt')){
+        if(version_compare(PHP_VERSION,'7.1.0','ge') && version_compare(PHP_VERSION,'7.2.0','lt')){
             $items[] = ['always_populate_raw_post_data','支持','yes','配置'];
         }
 

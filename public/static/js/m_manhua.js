@@ -52,36 +52,36 @@
             })
 
             //阅读完整小说
-            var copyTxt='xiaomanquan';
+            var weixin='xiaomanquan';
+            var facebook = 'https://www.facebook.com/profile.php?id=100033381124346';
             $(".d_header").after('' +
                 '<div class="d_want">' +
                 '<p class="d_want_p">' +
                 '<textarea cols="1" rows="1" id="biao1"></textarea>' +
-                '想要看完整无修版漫画请根据下面步骤操作</p>' +
+                '关注我的Facebook或者微信公众号</p>' +
                 '<ul class="d_want_ul">' +
-                '<li>1、点击复制按钮，进入微信</li>' +
-                '<li>2、搜索框粘贴复制的文字进入公众号</li>' +
-                '<li>3、搜索你想看的漫画名称即可阅读无删减版(完整版)漫画</li>' +
-                '<span class="d_stickup">'+copyTxt+'</span>' +
-                '<a class="d_copy" href="javascript:;">复制</a></ul></div>');
+                '<li>复制公众号ID，在公众号搜索，或Facebook主页地址，在浏览器访问</li>' +
+                '<li>到我的Facebook或公众号留言，您想要看的漫画</li>' +
+                '<a class="d_copy" id="facebook" href="javascript:;">复制facebook地址</a>' +
+                '<a class="d_copy" id="weixin" href="javascript:;">复制公众号</a></ul></div>');
             //复制   点击d_copy  复制d_stickup的内容
-            if($('.d_copy').length>0){
-                $('.d_copy').attr('data-clipboard-action','copy');
-                $('.d_copy').attr('data-clipboard-text',copyTxt);
+            if($('#weixin').length>0){
+                $('#weixin').attr('data-clipboard-action','copy');
+                $('#weixin').attr('data-clipboard-text',weixin);
                 
             }
-            if($('.d_copy2').length>0){
-                $('.d_copy2').attr('data-clipboard-action','copy');
-                $('.d_copy2').attr('data-clipboard-text',copyTxt);
+            if($('#facebook').length>0){
+                $('#facebook').attr('data-clipboard-action','copy');
+                $('#facebook').attr('data-clipboard-text',facebook);
 
             }
-            $(".d_copy").click(function(){
+            $("#weixin").click(function(){
                 //复制内容到剪切板
-                new ClipboardJS('.d_copy');
+                new ClipboardJS('#weixin');
             })
-            $(".d_copy2").click(function(){
+            $("#facebook").click(function(){
                 //复制内容到剪切板
-                new ClipboardJS('.d_copy2');
+                new ClipboardJS('#facebook');
             })
         },
         r_look:function(){

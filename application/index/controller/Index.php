@@ -2,7 +2,7 @@
 namespace app\index\controller;
 
 use app\model\Banner;
-use think\Request;
+use app\model\Author;
 
 class Index extends Base
 {
@@ -28,7 +28,7 @@ class Index extends Base
             $hot = cache('hot_homepage_mobile');
             if (!$hot){
                 $hot = $this->bookService->getBooks('click');
-                cache('hot_homepage_mobile',$hot,60);
+                cache('hot_homepage_mobile',$hot);
             }
             $ends = cache('ends_homepage_mobile');
             if (!$ends){
@@ -44,7 +44,7 @@ class Index extends Base
             $hot = cache('hot_homepage_pc');
             if (!$hot){
                 $hot = $this->bookService->getBooks('click','1=1',10);
-                cache('hot_homepage_pc',$hot,60);
+                cache('hot_homepage_pc',$hot);
             }
             $ends = cache('ends_homepage_pc');
             if (!$ends){
@@ -70,10 +70,22 @@ class Index extends Base
         return view($this->tpl);
     }
 
-    public function search(Request $request){
-        $keyword = $request->param('keyword');
-        $books = $this->bookService->getPagedBooks('id',[['bookname','like','%'.$keyword.'%']]);
-        $this->assign('books',$books);
+    public function search(){
+        $keyword = input('keyword');
+        $books = cache('searchresult'.$keyword);
+        if (!$books){
+            $books = $this->bookService->search($keyword);
+            cache('searchresult'.$keyword,$books);
+        }
+        foreach ($books as &$book){
+            $author = Author::get($book['author_id']);
+            $book['author'] = $author;
+        }
+        $this->assign([
+            'books' => $books,
+            'header_title' =>'搜索：'. $keyword,
+            'count' => count($books),
+        ]);
         return view($this->tpl);
     }
 

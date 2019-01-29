@@ -51,7 +51,7 @@ class BookService
     }
 
     public function getRandBooks(){
-        $books = Db::query("SELECT ad1.id,bookname,summary FROM xwx_book AS ad1 JOIN 
+        $books = Db::query("SELECT ad1.id,book_name,summary FROM xwx_book AS ad1 JOIN 
 (SELECT ROUND(RAND() * ((SELECT MAX(id) FROM xwx_book)-(SELECT MIN(id) FROM xwx_book))+(SELECT MIN(id) FROM xwx_book)) AS id)
  AS t2 WHERE ad1.id >= t2.id ORDER BY ad1.id LIMIT 9");
         foreach ($books as &$book){
@@ -63,7 +63,7 @@ class BookService
 
     public function getByName($name)
     {
-        return Book::where('bookname', '=', $name)->find();
+        return Book::where('book_name', '=', $name)->find();
     }
 
     public function getBook($id)
@@ -80,8 +80,8 @@ class BookService
 
     public function getRand($num)
     {
-        $books = Db::query('SELECT a.id,a.bookname,a.summary,a.end,b.author_name FROM 
-(SELECT ad1.id,bookname,summary,end,author_id
+        $books = Db::query('SELECT a.id,a.book_name,a.summary,a.end,b.author_name FROM 
+(SELECT ad1.id,book_name,summary,end,author_id
 FROM xwx_book AS ad1 JOIN (SELECT ROUND(RAND() * ((SELECT MAX(id) FROM xwx_book)-(SELECT MIN(id) FROM xwx_book))+(SELECT MIN(id) FROM xwx_book)) AS id)
  AS t2 WHERE ad1.id >= t2.id ORDER BY ad1.id LIMIT ' . $num . ') as a
  INNER JOIN author as b on a.author_id = b.id');
@@ -91,5 +91,9 @@ FROM xwx_book AS ad1 JOIN (SELECT ROUND(RAND() * ((SELECT MAX(id) FROM xwx_book)
     public function getNewest()
     {
         return Book::with('author')->limit(3)->order('update_time', 'desc')->select();
+    }
+
+    public function search($keyword){
+        return Db::query("select * from xwx_book where match(book_name,summary) against ('".$keyword."' IN NATURAL LANGUAGE MODE)");
     }
 }

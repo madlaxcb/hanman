@@ -16,7 +16,7 @@ function delete_dir_file($dir_name)
                 }
             }
             closedir($handle);
-            if (rmdir($dir_name)) {
+            if (rmdir($dir_name)) { //删除空白目录
                 $result = true;
             }
         }

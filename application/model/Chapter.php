@@ -14,7 +14,7 @@ use think\Model;
 class Chapter extends Model
 {
     protected $pk='id';
-    protected $autoWriteTimestamp = 'datetime';
+    protected $autoWriteTimestamp = true;
 
     public function book(){
         return $this->belongsTo('book');

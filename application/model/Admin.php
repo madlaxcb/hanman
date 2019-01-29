@@ -14,7 +14,7 @@ use think\Model;
 class Admin extends Model
 {
     protected $pk='id';
-    protected $autoWriteTimestamp = 'datetime';
+    protected $autoWriteTimestamp = true;
 
     public function setUsernameAttr($value){
         return trim($value);

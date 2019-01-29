@@ -6,8 +6,8 @@
 <div class="m_navs">
     <div class="m1100 m_nav">
         <a href="/">首页</a>
-        <a href="{:url('books/booklist')}">分类</a>
-        <a href="{:url('index/history')}">阅读历史</a>
+        <a href="/booklist">分类</a>
+        <a href="/bookshelf">阅读历史</a>
     </div>
 </div>
 
@@ -15,10 +15,10 @@
     <ul class="ov m_new_ul">
         {volist name="books" id="vo"}
         <li>
-            <a href="{:url('books/index',['id'=>$vo.id])}">
+            <a href="/book/{$vo.id}">
                 <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg">
-                <h3>{$vo.bookname}</h3>
-                <p>更新于：<span>{$vo.update_time}</span></p>
+                <h3>{$vo.book_name}</h3>
+                <p>更新于：<span>{$vo.update_time|date='Y-m-d H:i'}</span></p>
                 <p>状态：<i>{$vo.end?"已完结":"连载中"}</i></p>
             </a>
         </li>
@@ -29,9 +29,5 @@
 <div class="s_404">
     <img src="/static/images/404.png">
     <p>啊咧...找不到这本书哦</p>
-</div>
-
-<div class="pager">
-    {$books|raw}
 </div>
 {/block}

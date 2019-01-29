@@ -4,14 +4,14 @@
 {/block}
 
 {block name="body"}
-<article class="Hui-admin-page-container">
+<article class="clearfix pd-20">
     <form action="{:url('update')}" method="post" class="form form-horizontal" enctype="multipart/form-data">
         <input type="hidden" value="{$book.id}" name="id">
         <input type="hidden" value="{$returnUrl}" name="returnUrl">
         <div class="row clearfix">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>漫画名：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="{$book.bookname}" name="bookname">
+                <input type="text" class="input-text" value="{$book.book_name}" name="book_name">
             </div>
         </div>
 
@@ -32,10 +32,7 @@
         <div class="row clearfix">
             <label class="form-label col-xs-4 col-sm-3">封面：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <span class="btn-upload">
-				<a href="javascript:;" class="btn btn-primary radius btn-upload"><i class="Hui-iconfont">&#xe642;</i> 浏览文件</a>
-				<input type="file" multiple name="cover" id="btn-upload-file-thumb" class="input-file">
-				</span>
+                <input type="file" name="cover" class="input-text">
             </div>
         </div>
 
@@ -75,7 +72,7 @@
     $(function(){
         $("#form-admin-add").validate({
             rules:{
-                bookname:{
+                book_name:{
                     required:true,
                     minlength:1,
                     maxlength:50
@@ -83,7 +80,7 @@
                 author:{
                     required:true,
                     minlength:1,
-                    maxlength:10
+                    maxlength:50
                 }
             },
             onkeyup:false,
@@ -94,4 +91,3 @@
 </script>
 <!--/请在上方写此页面业务相关的脚本-->
 {/block}
-</html>

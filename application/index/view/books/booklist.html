@@ -16,10 +16,10 @@
 <ul class="sr_ul">
     {volist name="books" id="vo"}
     <li>
-        <a href="{:url('books/index',['id'=>$vo.id])}">
+        <a href="/book/{$vo.id}">
             <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg" class="fl">
             <div class="sr_tit">
-                <h2>{$vo.bookname}</h2>
+                <h2>{$vo.book_name}</h2>
                 <h3>作者：{$vo.author.author_name}</h3>
                 <p>{$vo.summary}</p>
             </div>

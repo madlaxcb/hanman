@@ -1,0 +1,41 @@
+{extend name="pub/pc_base" /}
+{block name="seo"}
+<title>韩漫-漫画搜索</title>
+{/block}
+{block name="content"}
+<div class="m_navs">
+    <div class="m1100 m_nav">
+        <a href="/">首页</a>
+        <a href="/booklist">分类</a>
+        <a href="/bookshelf">阅读历史</a>
+    </div>
+</div>
+
+<div class="m1100 l_content">
+    <ul class="ov m_new_ul">
+    </ul>
+</div>
+
+<script>
+    var keys = [];
+    for (i = 0; i < window.localStorage.length; i++){
+        var key = localStorage.key(i);
+        if(key.indexOf('manhua_id') > -1){
+            keys.push(key);
+        }
+    }
+    if (keys.length > 10){
+        window.localStorage.removeItem(keys[0]);
+    }
+    for (i = 0; i < window.localStorage.length; i++){
+        var key = localStorage.key(i);
+        if(key.indexOf('manhua_id') > -1){
+            var arr = JSON.parse(window.localStorage.getItem(key));
+            var $li = '<li><a href="chapter/'+arr[2]+'">' +
+                '<img src="{$img_site}/static/upload/book/'+arr[0]+'/cover.jpg">' +
+                '<h3>'+arr[1]+'<h3><p>作者：'+arr[4]+'</p><p>最后阅读章节：'+arr[3]+'</p></a></li>';
+            $("ul.ov").append($li);
+        }
+    }
+</script>
+{/block}

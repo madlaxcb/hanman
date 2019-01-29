@@ -1,7 +1,7 @@
 {extend name="pub/base" /}
 {block name="seo"}
-<title>{$book.bookname}免费无修在线阅读-韩漫</title>
-<meta name="description" content="{$book.bookname}是一本类型为{$book.tags}的高人气漫画">
+<title>{$book.book_name}免费无修在线阅读-韩漫</title>
+<meta name="description" content="{$book.book_name}是一本类型为{$book.tags}的高人气漫画">
 {/block}
 {block name="content"}
 
@@ -11,12 +11,12 @@
             <img src="{$img_site}/static/upload/book/{$book.id}/cover.jpg">
         </a>
         <div class="d_he_r">
-            <a class="d_he_ra" href="javascript:;">{$book.bookname}</a>
+            <a class="d_he_ra" href="javascript:;">{$book.book_name}</a>
             <p class="d_he_rp1">状态：{$book.end?'已完结':'连载中'}</p>
             <p class="d_he_rp2">作者：{$book.author.author_name}</p>
             <p class="d_he_rp2">
             {volist name="$tags" id="vo"}
-                <a href="{:url('books/booklist',['tag'=>$vo])}">{$vo}</a>
+                <a href="/booklist/$vo">{$vo}</a>
                 {/volist}
             </p>
         </div>
@@ -25,7 +25,7 @@
             {if $start == -1}
             <a href="#" class="flex_item">暂无内容</a>
             {else /}
-            <a href="{:url('chapters/index',['id' => $start])}" class="flex_item" id="read_btn">开始阅读</a>
+            <a href="/chapter/{$start}" class="flex_item" id="read_btn">开始阅读</a>
             {/if}
         </div>
     </div>
@@ -65,7 +65,7 @@
                 <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg">
             </a>
             <a href="{:url('books/index',['id'=>$vo.id])}" class="ginfo">
-                <span class="gname">{$vo.bookname}</span>
+                <span class="gname">{$vo.book_name}</span>
                 <span class="gname_strar"><i></i></span>
                 <b>{$vo.summary}</b>
             </a>

@@ -8,14 +8,11 @@
 
 namespace app\admin\controller;
 
-
-use think\Controller;
 use app\model\Banner as BannerModel;
-use think\Image;
 use think\Request;
 use think\facade\App;
 
-class Banner extends BaseAdmin
+class Banners extends BaseAdmin
 {
     public function index(){
         $banners = BannerModel::with('book')->paginate(5,true);
@@ -59,7 +56,8 @@ class Banner extends BaseAdmin
         }
     }
 
-    public function edit($id){
+    public function edit(){
+        $id = input('id');
         $returnUrl = input('returnUrl');
         $banner = BannerModel::get($id);
         $this->assign([

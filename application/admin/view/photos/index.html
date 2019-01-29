@@ -31,10 +31,7 @@
                         <input type="hidden" value="{$chapter_id}" name="chapter_id">
                         <input type="hidden" value="{$book_id}" name="book_id">
                         <div class="formControls col-xs-3 col-sm-3">
-                            <span class="btn-upload">
-                            <a href="javascript:;" class="btn btn-primary radius btn-upload"><i class="Hui-iconfont">&#xe642;</i> 浏览文件</a>
-                            <input type="file" multiple="multiple" name="image[]" class="input-file">
-                            </span>
+                            <input type="file" multiple="multiple" name="image[]" class="input-text">
                         </div>
                         <div class="formControls col-xs-6 col-sm-6">
                             <input class="btn btn-primary radius" type="submit" value="上传"/>&nbsp;<span
@@ -42,7 +39,7 @@
                         </div>
                     </form>
                     <a class="btn btn-primary radius" href="{:url('clear',['chapter_id' => $chapter_id])}"
-                       onClick="return confirm('确定删除?');">删除图片</a>
+                       onClick="return confirm('确定清空?');">清空图片</a>
                 </div>
                 <div class="mt-20 clearfix">
                     {volist name="photos" id="vo"}
@@ -58,5 +55,3 @@
 </section>
 {include file="pub/index_scripts" /}
 {/block}
-
-</html>

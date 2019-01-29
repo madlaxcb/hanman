@@ -36,9 +36,9 @@ class Books extends BaseAdmin
     }
 
     public function search(){
-        $name = input('bookname');
+        $name = input('book_name');
         $where = [
-            ['bookname', 'like', '%'.$name.'%']
+            ['book_name', 'like', '%'.$name.'%']
         ];
         $data = $this->bookService->getPagedBooksAdmin($where);
         $books = $data['books'];
@@ -64,7 +64,7 @@ class Books extends BaseAdmin
         $data = $request->param();
         $validate = new \app\admin\validate\Book();
         if ($validate->check($data)){
-            if ($this->bookService->getByName($data['bookname'])){
+            if ($this->bookService->getByName($data['book_name'])){
                 $this->error('漫画名已经存在');
             }
 
@@ -76,19 +76,9 @@ class Books extends BaseAdmin
                 $author->save();
             }
             $book->author_id = $author->id;
-            $book->bookname = $data['bookname'];
+            $book->book_name = $data['book_name'];
             $result = $book->save($data);
             if ($result){
-                //标签处理
-                if (!empty($data['tags'])){
-                    $tags = explode('|',$data['tags']); //拆分标签成数组
-                    foreach ($tags as $tagname) {
-                        $tag = $this->tagsService->getByName($tagname);
-                        if(is_null($tag) || empty($tag)){
-                            Tags::Create(['tagname' => $tagname]); //如果数据库里没有该标签，则追加
-                        }
-                    }
-                }
                 $dir = App::getRootPath().'/public/static/upload/book/' . $book->id;
                 if (!file_exists($dir)) {
                     mkdir($dir, 0777, true);
@@ -98,12 +88,10 @@ class Books extends BaseAdmin
                     $cover->validate(['size' => 1024000, 'ext' => 'jpg,png,gif'])
                         ->move($dir,'cover.jpg');
                 }
-
                 $this->success('添加成功','index','',1);
             }else{
                 $this->error('添加失败');
             }
-
         }else{
             $this->error($validate->getError());
         }
@@ -137,16 +125,6 @@ class Books extends BaseAdmin
             }
             $result = Book::update($data);
             if ($result){
-                //标签处理
-                if (!empty($data['tags'])){
-                    $tags = explode('|',$data['tags']); //拆分标签成数组
-                    foreach ($tags as $tagname) {
-                        $tag = $this->tagsService->getByName($tagname);
-                        if (is_null($tag) || empty($tag)){
-                            Tags::create(['tagname' => $tagname]); //如果数据库里没有该标签，则追加
-                        }
-                    }
-                }
                 $dir = App::getRootPath().'/public/static/upload/book/' . $data['id'];
                 if (!file_exists($dir)) {
                     mkdir($dir, 0777, true);

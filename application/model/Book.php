@@ -13,7 +13,24 @@ use think\Model;
 class Book extends Model
 {
     protected $pk = 'id';
-    protected $autoWriteTimestamp = 'datetime';
+    protected $autoWriteTimestamp = true;
+
+    public static function init()
+    {
+        self::event('after_insert', function ($book) {
+            cache('newest_homepage_mobile',null);
+            cache('hot_homepage_mobile',null);
+            cache('ends_homepage_mobile',null);
+            cache('newest_homepage_pc',null);
+            cache('hot_homepage_pc',null);
+            cache('ends',null);
+        });
+
+        self::event('after_update', function ($book){
+            cache('book' . $book->id,null);
+            cache('book' . $book->id . 'tags',null);
+        });
+    }
 
     public function author()
     {
@@ -24,7 +41,19 @@ class Book extends Model
         return $this->hasMany('chapter');
     }
 
-    public function setBooknameAttr($value){
+    public function setBookNameAttr($value){
+        return trim($value);
+    }
+
+    public function setTagsAttr($value){
+        return trim($value);
+    }
+
+    public function setSummaryAttr($value){
+        return trim($value);
+    }
+
+    public function setSrcAttr($value){
         return trim($value);
     }
 }

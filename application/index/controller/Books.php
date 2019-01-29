@@ -20,22 +20,22 @@ class Books extends Base
     public function index(Request $request)
     {
         $id = $request->param('id');
-        $book = Cache::get('book' . $id);
-        $tags = Cache::get('book' . $id . 'tags');
+        $book = cache('book' . $id);
+        $tags = cache('book' . $id . 'tags');
         if ($book ==false) {
             $book = Book::with('chapters,author')->find($id);
             $tags = explode('|', $book->tags);
-            Cache::set('book' . $id, $book);
-            Cache::set('book' . $id . 'tags', $tags);
+            cache('book' . $id, $book);
+            cache('book' . $id . 'tags', $tags);
         }
         $book->click = $book->click + 1;
         $book->isUpdate(true)->save();
         $recommand = $this->bookService->getRandBooks();
-        $start = Cache::get('book_start' . $id);
+        $start = cache('book_start' . $id);
         if ($start == false) {
-            $db = Db::query('SELECT id FROM chapter WHERE book_id = ' . $request->param('id') . ' ORDER BY id LIMIT 1');
+            $db = Db::query('SELECT id FROM xwx_chapter WHERE book_id = ' . $request->param('id') . ' ORDER BY id LIMIT 1');
             $start = $db ? $db[0]['id'] : -1;
-            Cache::set('book_start' . $id, $start);
+            cache('book_start' . $id, $start);
         }
 
         $this->assign([

@@ -10,7 +10,7 @@
     <div class="swiper-wrapper" style="transform: translate3d(-375px, 0px, 0px); transition-duration: 0ms;">
         {volist name="banners" id="vo"}
         <div class="swiper-slide swiper-slide-prev" style="width: 375px;">
-            <a class="m_banner_l" href="{:url('books/index',['id'=>$vo.book_id])}">
+            <a class="m_banner_l" href="/book/{$vo.id}">
                 <img src="{$img_site}/static/upload/banner/{$vo.pic_name}">
                 <p>{$vo.title}</p>
             </a>
@@ -29,15 +29,15 @@
 <div class="m_recently">
     <div class="m_recently_tab">
         <h2>最近更新</h2>
-        <a href="{:url('books/booklist',[])}" class="m_new_more">更多</a>
+        <a href="/booklist" class="m_new_more">更多</a>
     </div>
     <div class="m_recently_swiper swiper-container swiper-container-horizontal">
         <div class="swiper-wrapper">
             {volist name="newest" id="vo"}
             <div class="swiper-slide" style="width: 87.3684px; margin-right: 10px;">
-                <a href="{:url('books/index',['id'=>$vo.id])}" class="m_recently_a">
+                <a href="/book/{$vo.id}" class="m_recently_a">
                     <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg">
-                    <h3>{$vo.bookname}</h3>
+                    <h3>{$vo.book_name}</h3>
                     <p>更新至第{$vo.chapter_count}话</p>
                 </a>
             </div>
@@ -49,15 +49,15 @@
 <div class="m_recently">
     <div class="m_recently_tab">
         <h2>最多点击</h2>
-        <a href="{:url('books/booklist',[])}" class="m_new_more">更多</a>
+        <a href="/booklist" class="m_new_more">更多</a>
     </div>
     <div class="m_recently_swiper swiper-container swiper-container-horizontal">
         <div class="swiper-wrapper">
             {volist name="hot" id="vo"}
             <div class="swiper-slide" style="width: 87.3684px; margin-right: 10px;">
-                <a href="{:url('books/index',['id'=>$vo.id])}" class="m_recently_a">
+                <a href="/book/{$vo.id}" class="m_recently_a">
                     <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg">
-                    <h3>{$vo.bookname}</h3>
+                    <h3>{$vo.book_name}</h3>
                     <p>更新至第{$vo.chapter_count}话</p>
                 </a>
             </div>
@@ -69,15 +69,15 @@
 <div class="m_recently">
     <div class="m_recently_tab">
         <h2>完结作品</h2>
-        <a href="{:url('books/booklist',[])}" class="m_new_more">更多</a>
+        <a href="/booklist" class="m_new_more">更多</a>
     </div>
     <div class="m_recently_swiper swiper-container swiper-container-horizontal">
         <div class="swiper-wrapper">
             {volist name="ends" id="vo"}
             <div class="swiper-slide" style="width: 87.3684px; margin-right: 10px;">
-                <a href="{:url('books/index',['id'=>$vo.id])}" class="m_recently_a">
+                <a href="/book/{$vo.id}" class="m_recently_a">
                     <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg">
-                    <h3>{$vo.bookname}</h3>
+                    <h3>{$vo.book_name}</h3>
                     <p>更新至第{$vo.chapter_count}话</p>
                 </a>
             </div>
@@ -101,10 +101,10 @@
         <ul class="m_ph_ul" style="display:block">
             {volist name="newest" id="vo"}
             <li>
-                <a href="{:url('books/index',['id'=>$vo.id])}">
+                <a href="/book/{$vo.id}">
                     <img class="fl" src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg">
                     <div class="m_ph_d">
-                        <h2 class="m_ph_h2">{$vo.bookname}</h2>
+                        <h2 class="m_ph_h2">{$vo.book_name}</h2>
                         <p class="m_ph_p1">{$vo.summary|subtext="15"}</p>
                         <div class="m_ph_hot"><i></i></div>
                     </div>
@@ -115,10 +115,10 @@
         <ul class="m_ph_ul">
             {volist name="hot" id="vo"}
             <li>
-                <a href="{:url('books/index',['id'=>$vo.id])}">
+                <a href="/book/{$vo.id}">
                     <img class="fl" src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg">
                     <div class="m_ph_d">
-                        <h2 class="m_ph_h2">{$vo.bookname}</h2>
+                        <h2 class="m_ph_h2">{$vo.book_name}</h2>
                         <p class="m_ph_p1">{$vo.summary|subtext="15"}</p>
                         <div class="m_ph_hot"><i></i></div>
                     </div>
@@ -129,10 +129,10 @@
         <ul class="m_ph_ul">
             {volist name="ends" id="vo"}
             <li>
-                <a href="{:url('books/index',['id'=>$vo.id])}">
+                <a href="/book/{$vo.id}">
                     <img class="fl" src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg">
                     <div class="m_ph_d">
-                        <h2 class="m_ph_h2">{$vo.bookname}</h2>
+                        <h2 class="m_ph_h2">{$vo.book_name}</h2>
                         <p class="m_ph_p1">{$vo.summary}</p>
                         <div class="m_ph_hot"><i></i></div>
                     </div>

@@ -4,7 +4,7 @@
 {/block}
 
 {block name="body"}
-<article class="Hui-admin-page-container">
+<article class="clearfix pd-20">
     <form action="{:url('update')}" method="post" class="form form-horizontal" enctype="multipart/form-data">
         <input type="hidden" value="{$author.id}" name="id">
         <input type="hidden" value="{$returnUrl}" name="returnUrl">
@@ -14,8 +14,6 @@
                 <input type="text" class="input-text" value="{$author.author_name}" name="author_name">
             </div>
         </div>
-
-
 
         <div class="row clearfix">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
@@ -34,15 +32,14 @@
                 author_name:{
                     required:true,
                     minlength:1,
-                    maxlength:10
+                    maxlength:50
                 }
             },
             onkeyup:false,
-            focusCleanup:true,
+            focusCleanup:false,
             success:"valid",
         });
     });
 </script>
 <!--/请在上方写此页面业务相关的脚本-->
 {/block}
-</html>

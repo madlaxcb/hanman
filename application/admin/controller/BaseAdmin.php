@@ -12,6 +12,7 @@ namespace app\admin\controller;
 use think\App;
 use think\Controller;
 use think\facade\Session;
+use think\facade\View;
 
 class BaseAdmin extends Controller
 {
@@ -25,7 +26,7 @@ class BaseAdmin extends Controller
     {
         parent::__construct($app);
         $img_site = config('site.img_site');
-        $this->assign([
+        View::share([
             'img_site' => $img_site,
             'returnUrl' => $this->request->url(true)
         ]);

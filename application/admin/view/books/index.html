@@ -25,7 +25,7 @@
                 <script>
                     function search() {
                         var param = $('#searchParam').val();
-                        location.href = "search?bookname=" + param;
+                        location.href = "search?book_name=" + param;
                     }
                 </script>
             </div>
@@ -57,7 +57,7 @@
                         {volist name="books" id="vo"}
                         <tr class="text-c">
                             <td>{$vo.id}</td>
-                            <td>{$vo.bookname}</td>
+                            <td>{$vo.book_name}</td>
                             <td>
                                 <img width="50%" class="picture-thumb"
                                      src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg">

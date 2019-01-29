@@ -4,7 +4,7 @@
 {/block}
 
 {block name="body"}
-<article class="Hui-admin-page-container">
+<article class="clearfix pd-20">
     <form action="{:url('save')}" method="post" class="form form-horizontal" enctype="multipart/form-data">
         <div class="row clearfix">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>作者名：</label>
@@ -30,15 +30,14 @@
                 author_name:{
                     required:true,
                     minlength:1,
-                    maxlength:10
+                    maxlength:50
                 }
             },
             onkeyup:false,
-            focusCleanup:true,
+            focusCleanup:false,
             success:"valid",
         });
     });
 </script>
 <!--/请在上方写此页面业务相关的脚本-->
 {/block}
-</html>

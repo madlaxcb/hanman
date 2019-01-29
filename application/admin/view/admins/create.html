@@ -1,0 +1,64 @@
+{extend name="pub/base" /}
+{block name="title"}
+<title>管理员新增</title>
+{/block}
+
+{block name="body"}
+<article class="clearfix pd-20">
+    <form class="form form-horizontal" action="{:url('save')}" method="post">
+        <div class="row clearfix">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>账号：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="" name="username">
+            </div>
+        </div>
+
+        <div class="row clearfix">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>密码：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="" name="password" id="password">
+            </div>
+        </div>
+
+        <div class="row clearfix">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>重复密码：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="" name="password2">
+            </div>
+        </div>
+
+        <div class="row clearfix">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+            </div>
+        </div>
+    </form>
+</article>
+
+<!--请在下方写此页面业务相关的脚本-->
+{include file="pub/validate_scripts" /}
+<script type="text/javascript">
+    $(function(){
+        $("form").validate({
+            rules:{
+                username:{
+                    required:true,
+                    minlength:1,
+                    maxlength:50
+                },
+                password:{
+                    required:true
+                },
+                password2:{
+                    required:true,
+                    equalTo: "#password"
+                },
+            },
+            onkeyup:false,
+            focusCleanup:false,
+            success:"valid",
+        });
+    });
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+{/block}

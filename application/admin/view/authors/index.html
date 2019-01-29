@@ -39,6 +39,8 @@
                         <tr class="text-c">
                             <th width="80">ID</th>
                             <th>作者名</th>
+                            <th>创建时间</th>
+                            <th>修改时间</th>
                             <th width="100">作品数</th>
                             <th width="200">操作</th>
                         </tr>
@@ -48,6 +50,8 @@
                         <tr class="text-c">
                             <td>{$vo.id}</td>
                             <td>{$vo.author_name}</td>
+                            <td>{$vo.create_time|date='Y-m-d H:i'}</td>
+                            <td>{$vo.update_time|date='Y-m-d H:i'}</td>
                             <td>
                                 {$vo.count}
                             </td>

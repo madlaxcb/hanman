@@ -30,6 +30,21 @@ class Chapters extends BaseAdmin
         return view();
     }
 
+    public function create(){
+        $returnUrl = input('returnUrl');
+        $book_id = input('book_id');
+        $lastChapterOrder = 0;
+        $lastChapter = $this->chapterService->getLastChapter($book_id);
+        if ($lastChapter){
+            $lastChapterOrder = $lastChapter->order;
+        }
+        $this->assign([
+            'book_id' => $book_id,
+            'order' => $lastChapterOrder + 1,
+            'returnUrl' => $returnUrl
+        ]);
+        return view();
+    }
 
     public function save(Request $request)
     {
@@ -47,11 +62,10 @@ class Chapters extends BaseAdmin
         if ($result){
             $param = [
                 "id" => $data["book_id"],
-                "update_time" => date("Y-m-d H:i:s", time())
+                "last_time" => time()
             ];
             Book::update($param);
-
-            $this->success('新增成功');
+            $this->success('添加成功',$data['returnUrl'],'',1);
         }else{
             $this->error('新增失败');
         }

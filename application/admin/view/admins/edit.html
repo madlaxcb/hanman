@@ -1,34 +1,31 @@
 {extend name="pub/base" /}
 {block name="title"}
-<title>轮播编辑</title>
+<title>管理员编辑</title>
 {/block}
 
 {block name="body"}
 <article class="Hui-admin-page-container">
-    <form action="{:url('update')}" method="post" class="form form-horizontal" enctype="multipart/form-data">
-        <input type="hidden" value="{$banner.id}" name="id">
+    <form action="{:url('update')}" method="post" class="form form-horizontal">
+        <input type="hidden" value="{$admin.id}" name="id">
         <input type="hidden" value="{$returnUrl}" name="returnUrl">
         <div class="row clearfix">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>标题：</label>
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>账号：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="{$banner.title}" name="title">
+                <input type="text" class="input-text" value="{$admin.username}" name="username">
             </div>
         </div>
 
         <div class="row clearfix">
-            <label class="form-label col-xs-4 col-sm-3">图片：</label>
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>密码：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <span class="btn-upload">
-				<a href="javascript:;" class="btn btn-primary radius btn-upload"><i class="Hui-iconfont">&#xe642;</i> 浏览文件</a>
-				<input type="file" multiple name="pic_name" class="input-file">
-				</span>
+                <input type="text" class="input-text" value="" name="password" id="password">
             </div>
         </div>
 
         <div class="row clearfix">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>漫画id：</label>
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>重复密码：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="{$banner.book_id}" name="book_id">
+                <input type="text" class="input-text" value="" name="password2">
             </div>
         </div>
 
@@ -46,21 +43,20 @@
     $(function(){
         $("form").validate({
             rules:{
-                title:{
+                username:{
                     required:true,
                     minlength:1,
                     maxlength:50
                 },
-                book_id:{
-                    required:true
-                }
+                password2:{
+                    equalTo: "#password"
+                },
             },
             onkeyup:false,
-            focusCleanup:true,
+            focusCleanup:false,
             success:"valid",
         });
     });
 </script>
 <!--/请在上方写此页面业务相关的脚本-->
 {/block}
-</html>

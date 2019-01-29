@@ -13,7 +13,7 @@ class Book extends Validate
      * @var array
      */	
 	protected $rule = [
-        'bookname' => 'require',
+        'book_name' => 'require',
         'author' => 'require',
     ];
     
@@ -24,7 +24,7 @@ class Book extends Validate
      * @var array
      */	
     protected $message = [
-        'bookname' => '名称必须',
+        'book_name' => '名称必须',
         'author' => '作者必须',
     ];
 }

@@ -25,11 +25,18 @@ class Chapters extends Base
             $chapters = Chapter::where('book_id','=',$book_id)->select();
             Cache::set('mulu'.$book_id,$chapters);
         }
-        $prev = Db::query(
-            'select * from chapter where book_id='.$book_id.' and id<' . $id . ' order by id desc limit 1'); //上一章
-        $next = Db::query(
-            'select * from chapter where book_id='.$book_id.' and id>' . $id . ' order by id limit 1'); //下一章
-
+        $prev = cache('chapter_prev'.$id);
+        if (!$prev){
+            $prev = Db::query(
+                'select * from xwx_chapter where book_id='.$book_id.' and `order`<' . $chapter->order . ' order by id desc limit 1');
+            cache('chapter_prev'.$id,$prev);
+        }
+        $next = cache('chapter_next'.$id);
+        if (!$next){
+            $next = Db::query(
+                'select * from xwx_chapter where book_id='.$book_id.' and `order`>' . $chapter->order . ' order by id limit 1');
+            cache('chapter_next'.$id,$next);
+        }
         if (count($prev) > 0) {
             $this->assign('prev', $prev[0]);
         } else {

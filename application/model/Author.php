@@ -13,7 +13,7 @@ use think\Model;
 class Author extends Model
 {
     protected $pk='id';
-    protected $autoWriteTimestamp = 'datetime';
+    protected $autoWriteTimestamp = true;
 
     public function books(){
         return $this->hasMany('book');

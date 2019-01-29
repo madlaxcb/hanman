@@ -1,7 +1,7 @@
 {extend name="pub/pc_base" /}
 {block name="seo"}
-<title>{$book.bookname}免费无修在线阅读-韩漫</title>
-<meta name="description" content="{$book.bookname}是一本类型为{$book.tags}的高人气漫画">
+<title>{$book.book_name}免费无修在线阅读-韩漫</title>
+<meta name="description" content="{$book.book_name}是一本类型为{$book.tags}的高人气漫画">
 {/block}
 {block name="content"}
 <div class="d_bgs">
@@ -10,15 +10,15 @@
             <img src="{$img_site}/static/upload/book/{$book.id}/cover.jpg"></a>
         <div class="d_bg">
             <div class="d_bg_t">
-                <a href="javascript:;">{$book.bookname}</a>
+                <a href="javascript:;">{$book.book_name}</a>
                 {volist name="tags" id="vo"}
-                <a href="{:url('books/booklist',['tag'=>$vo])}"><span>{$vo}</span></a>
+                <a href="/booklist/{$vo}"><span>{$vo}</span></a>
                 {/volist}
             </div>
 
             <div class="d_bg_ti">
                 <i></i>
-                <span>{$book.bookname}</span>
+                <span>{$book.book_name}</span>
             </div>
             <div class="d_bg_name">
                 <i>作者：{$book.author.author_name}</i>
@@ -31,7 +31,7 @@
                 <span>人气：<i>1864.5万</i></span>
             </div>
             <div class="d_bg_b">
-                <a href="{:url('chapters/index',['id' => $start])}" class="d_bg_read">开始阅读</a>
+                <a href="/chapter/{$start}" class="d_bg_read">开始阅读</a>
                 <a href="javascript:;" class="d_bg_collect"><i></i>收藏</a>
             </div>
             <span class="m_day_score"><i>9</i></span>
@@ -49,7 +49,7 @@
         <p>作者首页</p>
     </a>
     <div class="Disclaimer_tit">
-        此漫画由<b>风之动漫</b>分享发布，以供爱好者研究画法技巧。咕嘛动漫仅提供展示平台，若侵犯到您的权益，请<a href="javascript:;">联系我们</a>删除，我们始终在为版权维护与作品推广而努力。
+        此漫画为网友上传，{$site_name}仅免费提供漫画阅读，若侵犯到您的权益，请<a href="javascript:;">联系我们</a>删除，我们始终在为版权维护与作品推广而努力。
     </div>
 </div>
 
@@ -66,7 +66,7 @@
             <div class="d_menu">
                 <ul>
                     {volist name="book.chapters" id="vo"}
-                    <li idx="0"><a href="{:url('chapters/index',['id'=>$vo.id])}"><b>{$vo.chapter_name}</b></a></li>
+                    <li idx="0"><a href="/chapter/{$vo.id}"><b>{$vo.chapter_name}</b></a></li>
                     {/volist}
                 </ul>
                 <a href="javascript:;" class="d_menu_much" style="display: block;">点击查看更多章节</a>
@@ -80,9 +80,9 @@
                     <ul>
                         {volist name="recommand" id="vo"}
                         <li>
-                            <a href="{:url('books/index',['id'=>$vo.id])}">
+                            <a href="/book/{$vo.id}">
                                 <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg">
-                                <h3>{$vo.bookname}</h3>
+                                <h3>{$vo.book_name}</h3>
                                 <p>{$vo.summary}</p>
                             </a>
                         </li>
@@ -99,10 +99,10 @@
                 <ul class="m_ph_ul" style="display:block">
                     {volist name="updates" id="vo"}
                     <li>
-                        <a href="{:url('books/index',['id'=>$vo.id])}">
+                        <a href=/book/{$vo.id}">
                             <img class="fl" src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg">
                             <div class="m_ph_d">
-                                <h2 class="m_ph_h2">{$vo.bookname}</h2>
+                                <h2 class="m_ph_h2">{$vo.book_name}</h2>
                                 <p class="m_ph_p1">{$vo.summary}</p>
                                 <p class="m_ph_p2">更新至第{$vo.chapter_count}话</i></p>
                                 <div class="m_ph_hot"><i></i>0</div>

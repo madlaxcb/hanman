@@ -11,24 +11,31 @@ namespace app\admin\controller;
 use app\model\Book;
 use app\model\Chapter;
 use app\model\Photo;
+use app\service\PhotoService;
 use think\Controller;
 use think\facade\App;
 use think\Request;
 
 class Photos extends BaseAdmin
 {
+    protected $photoService;
+    protected function initialize()
+    {
+        $this->photoService = new PhotoService();
+    }
+
     public function index(){
         $chapter_id = input('chapter_id');
         $chapter = Chapter::get($chapter_id);
         $book_id = input('book_id');
         $book = Book::get($book_id);
         $photos = Photo::where('chapter_id','=',$chapter_id)
-            ->order('id')->select();
+            ->order('order')->select();
         $this->assign([
             'photos'=>$photos,
             'chapter_id'=>$chapter_id,
             'book_id'=>$book_id,
-            'book_name'=>$book->bookname,
+            'book_name'=>$book->book_name,
             'chapter_name'=>$chapter->chapter_name
         ]);
         return view();
@@ -57,10 +64,17 @@ class Photos extends BaseAdmin
         if (is_null(Chapter::get($chapter_id))){
             $this->error('没有选择章节');
         }
+        $lastPhoto = $this->photoService->getLastPhoto($chapter_id);
+        if (!$lastPhoto){
+            $order = 1;
+        }else{
+            $order = $this->photoService->getLastPhoto($chapter_id)->order + 1; //拿到最新图片的order，加1
+        }
         $files = $request->file('image');
         foreach($files as $file){
             $photo = new Photo();
             $photo->chapter_id = $chapter_id;
+            $photo->order = $order;
             $result = $photo->save();
             if ($result){
                 $dir = App::getRootPath() . 'public/static/upload/book/'.$book_id.'/'.$chapter_id;
@@ -69,6 +83,7 @@ class Photos extends BaseAdmin
                 }
                 $file->validate(['size'=>2048000,'ext'=>'jpg,png,gif'])->move($dir,$photo->id.'.jpg');
             }
+            $order++;
         }
         $this->success('上传成功');
     }

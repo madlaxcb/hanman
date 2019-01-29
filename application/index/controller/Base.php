@@ -11,6 +11,7 @@ namespace app\index\controller;
 
 use think\App;
 use think\Controller;
+use think\facade\View;
 
 class Base extends Controller
 {
@@ -23,7 +24,7 @@ class Base extends Controller
         }else{
             $this->tpl = 'pc_'.$this->request->action();
         }
-        $this->assign([
+        View::share([
             'url' => config('site.url'),
             'site_name' => config('site.site_name'),
             'img_site' => config('site.img_site')

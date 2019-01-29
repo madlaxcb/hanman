@@ -2,7 +2,6 @@
 <html lang="zh">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1,user-scalable=no">
     <title>韩漫-漫画搜索</title>
@@ -13,7 +12,7 @@
 <body style="">
 
 <div class="s_top">
-    <a href="http://m.gumua.com/Seach/" class="s_top_back" id="goBack"></a>
+    <a href="/search" class="s_top_back" id="goBack"></a>
     <div class="s_top_input">
         <input type="text" id="txt_seach" placeholder="请输入关键字">
     </div>
@@ -24,27 +23,24 @@
 
 <div class="s_result">
     <h3>热门搜索：</h3>
-    <a href="{:url('index/search',['keyword'=>'淑女花苑'])}">淑女花苑</a>
-    <a href="{:url('index/search',['keyword'=>'要交换吗'])}">要交换吗</a>
-    <a href="{:url('index/search',['keyword'=>'制服的诱惑'])}">制服的诱惑</a>
+    <a href="/search/淑女花苑">淑女花苑</a>
+    <a href="/search/要交换吗">要交换吗</a>
+    <a href="/search/制服的诱惑">制服的诱惑</a>
 </div>
 
 <ul class="sr_ul">
     {volist name="books" id="vo"}
     <li>
-        <a href="{:url('books/index',['id'=>$vo.id])}">
+        <a href="/book/{$vo.id}">
             <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg" class="fl">
             <div class="sr_tit">
-                <h2>{$vo.bookname}</h2>
+                <h2>{$vo.book_name}</h2>
                 <h3>作者：{$vo.author.author_name}</h3>
                 <p>{$vo.summary} </p>
             </div>
         </a>
     </li>
     {/volist}
-    <div style="text-align: center">
-        {$books|raw}
-    </div>
 </ul>
 
 
@@ -52,14 +48,12 @@
     function seach() {
         var keyword = document.getElementById("txt_seach").value;
         if (keyword == "") {
-            keyword = "女装设计师";
+            keyword = "偷窥";
         }
-        window.location.href = '/index/index/search/keyword/' + keyword;
+        window.location.href = '/search/' + keyword;
     }
 </script>
 {include file="pub/others" /}
-
-
 
 </body>
 </html>
