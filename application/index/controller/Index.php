@@ -89,10 +89,6 @@ class Index extends Base
         return view($this->tpl);
     }
 
-    public function history(){
-        return view();
-    }
-
     public function bookshelf(){
         return view($this->tpl);
     }

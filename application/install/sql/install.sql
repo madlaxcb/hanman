@@ -120,3 +120,16 @@ CREATE TABLE `xwx_tags` (
   KEY `create_time` (`create_time`),
   KEY `update_time` (`update_time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+-- ----------------------------
+-- Table structure for xwx_friendship_link
+-- ----------------------------
+DROP TABLE IF EXISTS `xwx_friendship_link`;
+CREATE TABLE `xwx_friendship_link` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `url` varchar(255) NOT NULL,
+  `create_time` int(11) NULL,
+  `update_time` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;

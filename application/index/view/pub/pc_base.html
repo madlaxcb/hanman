@@ -110,8 +110,9 @@
         </div>
         <div class="fr m_link_r">
             <ul>
-                <li><a href="https://www.51rosi.com">美女图片</a></li>
-                <li><a href="http://www.yqxs8.cc">言情小说吧</a></li>
+                {volist name="links" id="vo"}
+                <li><a href="{$vo.url}">{$vo.name}</a></li>
+                {/volist}
             </ul>
         </div>
     </div>

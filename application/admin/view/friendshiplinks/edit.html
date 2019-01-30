@@ -1,31 +1,24 @@
 {extend name="pub/base" /}
 {block name="title"}
-<title>管理员编辑</title>
+<title>友链编辑</title>
 {/block}
 
 {block name="body"}
 <article class="clearfix pd-20">
     <form action="{:url('update')}" method="post" class="form form-horizontal">
-        <input type="hidden" value="{$admin.id}" name="id">
+        <input type="hidden" value="{$link.id}" name="id">
         <input type="hidden" value="{$returnUrl}" name="returnUrl">
         <div class="row clearfix">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>账号：</label>
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>友链名称：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="{$admin.username}" name="username">
+                <input type="text" class="input-text" value="{$link.name}" name="name">
             </div>
         </div>
 
         <div class="row clearfix">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>密码：</label>
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>友链地址：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="" name="password" id="password">
-            </div>
-        </div>
-
-        <div class="row clearfix">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>重复密码：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="" name="password2">
+                <input type="text" class="input-text" value="{$link.url}" name="url">
             </div>
         </div>
 
@@ -43,13 +36,11 @@
     $(function(){
         $("form").validate({
             rules:{
-                username:{
-                    required:true,
-                    minlength:1,
-                    maxlength:50
+                name:{
+                    required:true
                 },
-                password2:{
-                    equalTo: "#password"
+                url:{
+                    required:true
                 },
             },
             onkeyup:false,
