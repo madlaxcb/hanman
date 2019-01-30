@@ -17,9 +17,11 @@ use think\facade\View;
 class Base extends Controller
 {
     protected $tpl;
+    protected $prefix;
     public function __construct(App $app = null)
     {
         parent::__construct($app);
+        $this->prefix = config('database.prefix');
         if (isMobile()){
             $this->tpl = $this->request->action();
         }else{
