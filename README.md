@@ -9,3 +9,5 @@
       break;  
 	}  
 ```  
+- 官方QQ群：780362399
+- 看云文档：https://www.kancloud.cn/hiliqi/xwx_comic_cms

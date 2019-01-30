@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6c5f9d75-19ef-4c9b-ae59-bb3279b1839b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/application/admin/controller/Friendshiplinks.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/admin/view/friendshiplinks/create.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/admin/view/friendshiplinks/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/admin/view/friendshiplinks/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/model/FriendshipLink.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/controller/Sitemap.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/admin/controller/Sitemap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/view/admins/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/admin/view/admins/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/view/books/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/admin/view/books/create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/view/books/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/admin/view/books/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/view/pub/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/admin/view/pub/menu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/index/controller/Base.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/index/controller/Base.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/index/controller/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/index/controller/Index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/index/view/pub/pc_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/index/view/pub/pc_base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/install/sql/install.sql" beforeDir="false" afterPath="$PROJECT_DIR$/application/install/sql/install.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -84,7 +70,7 @@
       <file leaf-file-name="Friendshiplinks.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/controller/Friendshiplinks.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
+            <state relative-caret-position="198">
               <caret line="17" column="30" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="30" />
               <folding>
                 <element signature="e#122#151#0#PHP" expanded="true" />
@@ -93,10 +79,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pc_base.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pc_base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/index/view/pub/pc_base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
+            <state relative-caret-position="2034">
               <caret line="113" column="49" selection-start-line="113" selection-start-column="49" selection-end-line="113" selection-end-column="49" />
             </state>
           </provider>
@@ -119,8 +105,8 @@
       <file leaf-file-name="Base.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/index/controller/Base.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="34" column="5" lean-forward="true" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+            <state relative-caret-position="396">
+              <caret line="30" column="44" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
               <folding>
                 <element signature="e#129#158#0#PHP" expanded="true" />
               </folding>
@@ -128,10 +114,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="cache.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/cache.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="edit.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/view/friendshiplinks/edit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
+            <state relative-caret-position="792">
               <caret line="44" column="14" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
             </state>
           </provider>
@@ -140,8 +135,8 @@
       <file leaf-file-name="create.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/view/friendshiplinks/create.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="42" column="14" lean-forward="true" selection-start-line="35" selection-start-column="12" selection-end-line="42" selection-end-column="14" />
+            <state relative-caret-position="756">
+              <caret line="42" column="14" selection-start-line="35" selection-start-column="12" selection-end-line="42" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -149,8 +144,8 @@
       <file leaf-file-name="Admins.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/controller/Admins.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="79" column="5" lean-forward="true" selection-start-line="72" selection-start-column="4" selection-end-line="79" selection-end-column="5" />
+            <state relative-caret-position="1296">
+              <caret line="79" column="5" selection-start-line="72" selection-start-column="4" selection-end-line="79" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -200,7 +195,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/admin/view/banners/create.html" />
         <option value="$PROJECT_DIR$/application/admin/controller/Banners.php" />
         <option value="$PROJECT_DIR$/application/admin/view/banners/edit.html" />
         <option value="$PROJECT_DIR$/application/admin/view/authors/create.html" />
@@ -251,6 +245,7 @@
         <option value="$PROJECT_DIR$/application/index/view/pub/pc_base.html" />
         <option value="$PROJECT_DIR$/application/index/controller/Index.php" />
         <option value="$PROJECT_DIR$/application/index/controller/Base.php" />
+        <option value="$PROJECT_DIR$/config/cache.php" />
       </list>
     </option>
   </component>
@@ -273,7 +268,7 @@
       <path value="$PROJECT_DIR$/vendor/topthink/think-captcha" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="20" />
     <option name="width" value="1280" />
     <option name="height" value="710" />
@@ -286,7 +281,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -297,78 +291,19 @@
             <path>
               <item name="hanman" type="b2602c69:ProjectViewProjectNode" />
               <item name="hanman" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="hanman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hanman" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="hanman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hanman" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="index" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="hanman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hanman" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="index" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="controller" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="hanman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hanman" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="index" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="hanman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hanman" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="index" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="index" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="hanman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hanman" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="index" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="pub" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="hanman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hanman" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="install" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="hanman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hanman" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="model" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="hanman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hanman" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="service" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../xiaoshuo" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -489,18 +424,18 @@
       <workItem from="1548666917731" duration="4008000" />
       <workItem from="1548732028550" duration="4721000" />
       <workItem from="1548762647609" duration="5931000" />
-      <workItem from="1548817924641" duration="2936000" />
+      <workItem from="1548817924641" duration="3122000" />
+      <workItem from="1548823666789" duration="7000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119477000" />
+    <option name="totallyTimeSpent" value="119670000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20375335" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20643431" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
@@ -524,19 +459,19 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21849866" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.3281471" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -557,10 +492,10 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/admin/view/chapters/edit.html">
+    <entry file="file://$PROJECT_DIR$/config/cache.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+        <state relative-caret-position="270">
+          <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -764,9 +699,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="27" column="44" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
-          <folding>
-            <element signature="e#129#143#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -804,9 +736,6 @@
           <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/model/Admin.php">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/controller/Books.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -847,9 +776,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="35" column="10" lean-forward="true" selection-end-line="64" />
-          <folding>
-            <element signature="n#article#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -862,22 +788,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/friendshiplinks/create.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="42" column="14" lean-forward="true" selection-start-line="35" selection-start-column="12" selection-end-line="42" selection-end-column="14" />
+        <state relative-caret-position="756">
+          <caret line="42" column="14" selection-start-line="35" selection-start-column="12" selection-end-line="42" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/friendshiplinks/edit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
+        <state relative-caret-position="792">
           <caret line="44" column="14" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/controller/Admins.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="79" column="5" lean-forward="true" selection-start-line="72" selection-start-column="4" selection-end-line="79" selection-end-column="5" />
+        <state relative-caret-position="1296">
+          <caret line="79" column="5" selection-start-line="72" selection-start-column="4" selection-end-line="79" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -900,19 +826,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/index/controller/Base.php">
+    <entry file="file://$PROJECT_DIR$/application/index/view/pub/pc_base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="34" column="5" lean-forward="true" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-          <folding>
-            <element signature="e#129#158#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="2034">
+          <caret line="113" column="49" selection-start-line="113" selection-start-column="49" selection-end-line="113" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/controller/Friendshiplinks.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
+        <state relative-caret-position="198">
           <caret line="17" column="30" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="30" />
           <folding>
             <element signature="e#122#151#0#PHP" expanded="true" />
@@ -920,10 +843,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/index/view/pub/pc_base.html">
+    <entry file="file://$PROJECT_DIR$/application/index/controller/Base.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="113" column="49" selection-start-line="113" selection-start-column="49" selection-end-line="113" selection-end-column="49" />
+        <state relative-caret-position="396">
+          <caret line="30" column="44" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
+          <folding>
+            <element signature="e#129#158#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/cache.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
         </state>
       </provider>
     </entry>
