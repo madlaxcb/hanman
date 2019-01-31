@@ -17,13 +17,17 @@ class Photos extends Controller
 {
     public function save(Request $request){
         if ($request->isPost()){
-            $chapter_id = $request->post('chapter_id');
+            $data = $request->param();
             $pic = new Photo();
-            $result = $pic->save(['chapter_id'=>$chapter_id]);
+            $result = $pic->save([
+                'chapter_id' => $data['chapter_id'],
+                'order' => $data['order']
+            ]);
             if ($result){
                 return json([
                     'success' => 1,
-                    'book_id' => $pic->id
+                    'pic_id' => $pic->id,
+                    'pic_order' => $pic->order
                 ]);
             }else{
                 return json(['success' => 0,'msg' => '非法操作']);
