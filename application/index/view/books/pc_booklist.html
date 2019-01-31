@@ -27,7 +27,7 @@
             <a href="/book/{$vo.id}">
                 <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg">
                 <h3>{$vo.book_name}</h3>
-                <p>更新于：<span>{$vo.update_time}</span></p>
+                <p>更新于：<span>{$vo.update_time|date='Y-m-d H:i'}</span></p>
                 <p>状态：<i>{$vo.end?"已完结":"连载中"}</i></p>
             </a>
         </li>
