@@ -19,21 +19,23 @@ class Chapters extends Controller
         if ($request->isPost()){
             $data = $request->param();
 
-            if(empty($data['chapter_name'])){
-                return json(['chapter_id' => -1]);
-            }
-            if (empty($data['book_id'])){
-                return json(['chapter_id' => -1]);
-            }
             $map[] = ['chapter_name','=',$data['chapter_name']];
             $map[] = ['book_id','=',$data['book_id']];
             $chapter = Chapter::where($map)->find();
             if ($chapter){
-                return -1;
+                return json(['success' => 0,'msg' => '存在同名章节']);
             }
             $chapter = new Chapter();
-            $chapter->save($data);
-            return $chapter->id;
+            $result = $chapter->save($data);
+            if ($result){
+                return json([
+                    'success' => 1,
+                    'chapter_id' => $chapter->id,
+                    'chapter->order' => $chapter->order
+                ]);
+            }else{
+                return json(['success' => 0,'msg' => '非法操作']);
+            }
         }
        return '章节api接口';
     }

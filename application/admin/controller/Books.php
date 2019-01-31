@@ -11,13 +11,11 @@ class Books extends BaseAdmin
 {
     protected $authorService;
     protected $bookService;
-    protected $tagsService;
 
     public function initialize()
     {
         $this->authorService = new \app\service\AuthorService();
         $this->bookService = new \app\service\BookService();
-        $this->tagsService = new \app\service\TagsService();
     }
 
     public function index()
@@ -141,7 +139,6 @@ class Books extends BaseAdmin
             }else{
                 $this->error('编辑失败');
             }
-
         }else{
             $this->error($validate->getError());
         }
