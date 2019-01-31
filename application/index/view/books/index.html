@@ -45,7 +45,7 @@
     <ul class="d_cen_ul">
         {volist name="book.chapters" id="vo"}
         <li>
-            <a href="{:url('chapters/index',['id'=>$vo.id])}">{$vo.chapter_name}</a>
+            <a href="/chapter/{$vo.id}">{$vo.chapter_name}</a>
         </li>
         {/volist}
     </ul>
@@ -61,15 +61,15 @@
     <div class="m_lists">
         {volist name="recommand" id="vo"}
         <div class="infobox">
-            <a href="{:url('books/index',['id'=>$vo.id])}" class="gimg">
+            <a href="/book/{$vo.id}" class="gimg">
                 <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg">
             </a>
-            <a href="{:url('books/index',['id'=>$vo.id])}" class="ginfo">
+            <a href="/book/{$vo.id}" class="ginfo">
                 <span class="gname">{$vo.book_name}</span>
                 <span class="gname_strar"><i></i></span>
                 <b>{$vo.summary}</b>
             </a>
-            <a href="{:url('books/index',['id'=>$vo.id])}" class="gbtn">阅读</a>
+            <a href="/book/{$vo.id}" class="gbtn">阅读</a>
         </div>
         {/volist}
     </div>
