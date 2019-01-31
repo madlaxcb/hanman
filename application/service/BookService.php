@@ -52,9 +52,9 @@ class BookService extends Base
     }
 
     public function getRandBooks(){
-        $books = Db::query("SELECT ad1.id,book_name,summary FROM '.$this->prefix.'book AS ad1 JOIN 
+        $books = Db::query('SELECT ad1.id,book_name,summary FROM '.$this->prefix.'book AS ad1 JOIN 
 (SELECT ROUND(RAND() * ((SELECT MAX(id) FROM '.$this->prefix.'book)-(SELECT MIN(id) FROM '.$this->prefix.'book))+(SELECT MIN(id) FROM '.$this->prefix.'book)) AS id)
- AS t2 WHERE ad1.id >= t2.id ORDER BY ad1.id LIMIT 9");
+ AS t2 WHERE ad1.id >= t2.id ORDER BY ad1.id LIMIT 9');
         foreach ($books as &$book){
             $book['chapter_count'] = Chapter::where('book_id','=',$book['id'])->count();
         }
@@ -95,6 +95,6 @@ FROM '.$this->prefix.'book AS ad1 JOIN (SELECT ROUND(RAND() * ((SELECT MAX(id) F
     }
 
     public function search($keyword){
-        return Db::query("select * from '.$this->prefix.'book where match(book_name,summary) against ('".$keyword."' IN NATURAL LANGUAGE MODE)");
+        return Db::query("select * from ".$this->prefix."book where match(book_name,summary) against ('".$keyword."' IN NATURAL LANGUAGE MODE)");
     }
 }
