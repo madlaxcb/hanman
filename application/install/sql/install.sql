@@ -126,7 +126,7 @@ CREATE TABLE `xwx_tags` (
 -- ----------------------------
 DROP TABLE IF EXISTS `xwx_friendship_link`;
 CREATE TABLE `xwx_friendship_link` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `url` varchar(255) NOT NULL,
   `create_time` int(11) NULL,

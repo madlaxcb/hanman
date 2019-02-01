@@ -207,7 +207,7 @@
       <path value="$PROJECT_DIR$/vendor/topthink/think-captcha" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="20" />
     <option name="width" value="1280" />
     <option name="height" value="710" />
@@ -375,12 +375,12 @@
       <workItem from="1548919364410" duration="1587000" />
       <workItem from="1548922264756" duration="603000" />
       <workItem from="1548941863550" duration="1364000" />
-      <workItem from="1549014826432" duration="813000" />
+      <workItem from="1549014826432" duration="966000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="127834000" />
+    <option name="totallyTimeSpent" value="127987000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
