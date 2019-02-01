@@ -32,7 +32,7 @@ class Index extends BaseAdmin
     {
         $site_name = input('site_name');
         $url = input('url');
-        $img_site = input('img_site');
+        $img_site = input('img_site'); 
         $salt = input('salt');
         $xzh = input('xzh');
         $code = <<<INFO
