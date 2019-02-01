@@ -85,9 +85,9 @@ class Authors extends BaseAdmin
         $author = Author::get($id);
         $books = $author->books;
         if (count($books) > 0){
-            return json_encode(['err' => '1','msg' => '该作者名下还有作品，请先删除所有作品']);
+            return ['err' => '1','msg' => '该作者名下还有作品，请先删除所有作品'];
         }
         $author->delete();
-        return json_encode(['err' => '0','msg' => '删除成功']);
+        return ['err' => '0','msg' => '删除成功'];
     }
 }
