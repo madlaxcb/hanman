@@ -9,6 +9,7 @@
 namespace app\api\controller;
 
 
+use app\model\Book;
 use think\Controller;
 use think\Request;
 use app\model\Author;
@@ -28,10 +29,11 @@ class Books extends Controller
             //作者处理
             $author = Author::where('author_name','=',$data['author'])->find();
             if (is_null($author)) {//如果作者不存在
-                $author = new \app\model\Author();
+                $author = new Author();
                 $author->author_name = $data['author'];
                 $author->save();
             }
+            $book = new Book();
             $book->author_id = $author->id;
             $book->book_name = $data['book_name'];
             $result = $book->save($data);
