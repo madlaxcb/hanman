@@ -71,8 +71,8 @@ class Index extends Controller
                 $chapter->order = $lastChapterOrder + 1;
                 $chapter->save();
             }
-            $dir = App::getRootPath() . 'public/static/upload/book/'.$book->id.'/'.$chapter->id;
-            if (!file_exists($dir)) {
+            $pic_dir = App::getRootPath() . 'public/static/upload/book/'.$book->id.'/'.$chapter->id;
+            if (!file_exists($pic_dir)) {
                 mkdir($dir, 0777, true);
             }
             $img_urls = explode('|',$data['images']);
@@ -87,7 +87,7 @@ class Index extends Controller
                 $photo->order = $lastOrder + 1;
                 $photo->save();
                 $file = file_get_contents($img_url);
-                file_put_contents($dir.$photo->id.'.jpg',$file);
+                file_put_contents($pic_dir.$photo->id.'.jpg',$file);
             }
         }
     }
