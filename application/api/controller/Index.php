@@ -87,7 +87,7 @@ class Index extends Controller
                 $photo->order = $lastOrder + 1;
                 $photo->save();
                 $file = file_get_contents($img_url);
-                file_put_contents($pic_dir.$photo->id.'.jpg',$file);
+                file_put_contents($pic_dir.'/'.$photo->id.'.jpg',$file);
             }
         }
     }
