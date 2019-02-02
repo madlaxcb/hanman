@@ -46,7 +46,7 @@ class Index extends Controller
                 $book->src = $data['src'];
                 $book->end = $data['end'];
                 $book->save();
-                $dir = App::getRootPath().'/public/static/upload/book/' . $data['id'];
+                $dir = App::getRootPath().'/public/static/upload/book/' . $book->id;
                 if (!file_exists($dir)) {
                     mkdir($dir, 0777, true);
                 }
