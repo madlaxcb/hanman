@@ -220,7 +220,7 @@
       <path value="$PROJECT_DIR$/vendor/topthink/think-captcha" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="20" />
     <option name="width" value="1280" />
     <option name="height" value="710" />
