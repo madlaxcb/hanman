@@ -57,7 +57,7 @@ class Index extends Controller
                 }
             }
             $map[] = ['chapter_name', '=', $data['chapter_name']];
-            $map[] = ['book_id', '=', $data['book_id']];
+            $map[] = ['book_id', '=', $book->id];
             $chapter = Chapter::where($map)->find();
             if (!$chapter) {
                 $chapter = new Chapter();
