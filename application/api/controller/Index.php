@@ -73,7 +73,7 @@ class Index extends Controller
             }
             $pic_dir = App::getRootPath() . 'public/static/upload/book/'.$book->id.'/'.$chapter->id;
             if (!file_exists($pic_dir)) {
-                mkdir($dir, 0777, true);
+                mkdir($pic_dir, 0777, true);
             }
             $img_urls = explode('|',$data['images']);
             foreach ($img_urls as $img_url){
