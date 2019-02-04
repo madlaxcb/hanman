@@ -75,7 +75,8 @@ class Index extends Controller
             if (!file_exists($pic_dir)) {
                 mkdir($pic_dir, 0777, true);
             }
-            $img_urls = explode('|',$data['images']);
+             preg_match_all('/src=\"(.+?)\"/is', $data['images'], $aurl);
+            $img_urls = $aurl[1];
             foreach ($img_urls as $img_url){
                 $photo = new Photo();
                 $photo->chapter_id  = $chapter->id;
