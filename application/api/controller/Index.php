@@ -83,7 +83,7 @@ class Index extends Controller
                 $lastOrder = 0;
                 $lastPhoto = $this->photoService->getLastPhoto($chapter->id);
                 if ($lastPhoto){
-                    $lastOrder = $lastPhoto->order + 1;
+                    $lastOrder = $lastPhoto->order;
                 }
                 $photo->order = $lastOrder + 1;
                 $photo->save();
