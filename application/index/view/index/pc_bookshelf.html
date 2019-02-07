@@ -31,8 +31,12 @@
         var key = localStorage.key(i);
         if(key.indexOf('manhua_id') > -1){
             var arr = JSON.parse(window.localStorage.getItem(key));
+            var src = "{$img_site}/static/upload/book/"+arr[0]+"/cover.jpg";
+            if (arr[5] != undefined){
+                src = arr[5];
+            }
             var $li = '<li><a href="chapter/'+arr[2]+'">' +
-                '<img src="{$img_site}/static/upload/book/'+arr[0]+'/cover.jpg">' +
+                '<img src=' + src + ' +
                 '<h3>'+arr[1]+'<h3><p>作者：'+arr[4]+'</p><p>最后阅读章节：'+arr[3]+'</p></a></li>';
             $("ul.ov").append($li);
         }

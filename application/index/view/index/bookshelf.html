@@ -18,12 +18,17 @@
     if (keys.length > 10){
         window.localStorage.removeItem(keys[0]);
     }
+
     for (i = 0; i < window.localStorage.length; i++){
         var key = localStorage.key(i);
         if(key.indexOf('manhua_id') > -1){
             var arr = JSON.parse(window.localStorage.getItem(key));
+            var src = "{$img_site}/static/upload/book/"+arr[0]+"/cover.jpg";
+            if (arr[5] != undefined){
+                src = arr[5];
+            }
             var $li = '<li><a href="chapter/'+arr[2]+'">' +
-                '<img class="fl" src="{$img_site}/static/upload/book/'+arr[0]+'/cover.jpg">' +
+                '<img class="fl" src=' + src + '>' +
                 '<div class="sr_tit"><h2>'+arr[1]+'</h2><h3>作者：'+arr[4]+'</h3><p>最后阅读章节：'+arr[3]+'</p></div></a></li>';
             $("ul.sr_ul").append($li);
         }

@@ -38,11 +38,6 @@ CREATE TABLE `xwx_banner` (
   `book_id` int(11) NOT NULL,
   `title` varchar(50) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  KEY `pic_name` (`pic_name`),
-  KEY `create_time` (`create_time`),
-  KEY `update_time` (`update_time`),
-  KEY `book_id` (`book_id`),
-  KEY `title` (`title`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
@@ -60,12 +55,11 @@ CREATE TABLE `xwx_book` (
   `author_id` int(11) NOT NULL,
   `click` bigint(20) DEFAULT NULL,
   `src` varchar(50) DEFAULT NULL,
+  `cover_url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  KEY `create_time` (`create_time`),
-  KEY `update_time` (`update_time`),
-  KEY `tags` (`tags`),
-  KEY `end` (`end`),
-  KEY `author_id` (`author_id`),
+  KEY `tags` (`tags`) USING BTREE,
+  KEY `end` (`end`) USING HASH,
+  KEY `author_id` (`author_id`) USING HASH,
   FULLTEXT KEY `fidx` (`book_name`,`summary`) with parser ngram
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
@@ -82,11 +76,9 @@ CREATE TABLE `xwx_chapter` (
   `isvip` tinyint(4) DEFAULT NULL,
   `order` decimal(10,2) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  KEY `chapter_name` (`chapter_name`(250)),
-  KEY `create_time` (`create_time`),
-  KEY `update_time` (`update_time`),
-  KEY `book_id` (`book_id`),
-  KEY `order` (`order`)
+  KEY `chapter_name` (`chapter_name`(250)) USING BTREE,
+  KEY `book_id` (`book_id`) USING HASH,
+  KEY `order` (`order`) USING HASH,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
@@ -99,11 +91,10 @@ CREATE TABLE `xwx_photo` (
   `create_time` int(11) NULL,
   `update_time` int(11) NULL,
   `order` decimal(10,2) NOT NULL,
+  `img_url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  KEY `chapter_id` (`chapter_id`),
-  KEY `create_time` (`create_time`),
-  KEY `update_time` (`update_time`),
-  KEY `order` (`order`)
+  KEY `chapter_id` (`chapter_id`) USING HASH,
+  KEY `order` (`order`) USING HASH
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
@@ -117,8 +108,6 @@ CREATE TABLE `xwx_tags` (
   `update_time` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `tag_name` (`tag_name`) USING BTREE,
-  KEY `create_time` (`create_time`),
-  KEY `update_time` (`update_time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------

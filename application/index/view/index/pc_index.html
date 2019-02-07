@@ -41,7 +41,11 @@
                 {volist name="newest" id="vo"}
                 <li>
                     <a href="/book/{$vo.id}">
-                        <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg">
+                        {if isset($vo.cover_url)}
+                        <img src="{$vo.cover_url}" class="fl">
+                        {else /}
+                        <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg" class="fl">
+                        {/if}
                         <h3>{$vo.book_name}</h3>
                         <p>更新于：<span>{$vo.update_time|date='Y-m-d H:i'}</span></p>
                         <p>更新至第<i>{$vo.chapter_count}</i>话</p>
@@ -59,7 +63,11 @@
                     {volist name="newest" id="vo"}
                     <li>
                         <a href="/book/{$vo.id}">
-                            <img class="fl" src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg">
+                            {if isset($vo.cover_url)}
+                            <img src="{$vo.cover_url}" class="fl">
+                            {else /}
+                            <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg" class="fl">
+                            {/if}
                             <div class="m_ph_d">
                                 <h2 class="m_ph_h2">{$vo.book_name}</h2>
                                 <p class="m_ph_p1">{$vo.summary}</p>
@@ -86,7 +94,11 @@
                 {volist name="hot" id="vo"}
                 <li>
                     <a href="/book/{$vo.id}">
-                        <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg">
+                        {if isset($vo.cover_url)}
+                        <img src="{$vo.cover_url}" class="fl">
+                        {else /}
+                        <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg" class="fl">
+                        {/if}
                         <h3>{$vo.book_name}</h3>
                         <p>更新于：<span>{$vo.update_time|date='Y-m-d H:i'}</span></p>
                         <p>更新至第<i>{$vo.chapter_count}</i>话</p>
@@ -104,7 +116,11 @@
                     {volist name="hot" id="vo"}
                     <li>
                         <a href="/book/{$vo.id}">
-                            <img class="fl" src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg">
+                            {if isset($vo.cover_url)}
+                            <img src="{$vo.cover_url}" class="fl">
+                            {else /}
+                            <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg" class="fl">
+                            {/if}
                             <div class="m_ph_d">
                                 <h2 class="m_ph_h2">{$vo.book_name}</h2>
                                 <p class="m_ph_p1">{$vo.summary}</p>
@@ -131,7 +147,11 @@
                 {volist name="ends" id="vo"}
                 <li>
                     <a href="/book/{$vo.id}">
-                        <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg">
+                        {if isset($vo.cover_url)}
+                        <img src="{$vo.cover_url}" class="fl">
+                        {else /}
+                        <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg" class="fl">
+                        {/if}
                         <h3>{$vo.book_name}</h3>
                         <p>更新于：<span>{$vo.update_time|date='Y-m-d H:i'}</span></p>
                         <p>更新至第<i>{$vo.chapter_count}</i>话</p>
@@ -149,7 +169,11 @@
                     {volist name="ends" id="vo"}
                     <li>
                         <a href="/book/{$vo.id}">
-                            <img class="fl" src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg">
+                            {if isset($vo.cover_url)}
+                            <img src="{$vo.cover_url}" class="fl">
+                            {else /}
+                            <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg" class="fl">
+                            {/if}
                             <div class="m_ph_d">
                                 <h2 class="m_ph_h2">{$vo.book_name}</h2>
                                 <p class="m_ph_p1">{$vo.summary}</p>

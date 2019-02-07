@@ -8,7 +8,11 @@
 <div class="d_header">
     <div class="ov d_he">
         <a href="javascript:;" class="fl d_he_img">
-            <img src="{$img_site}/static/upload/book/{$book.id}/cover.jpg">
+            {if isset($book.cover_url)}
+            <img src="{$book.cover_url}" class="fl">
+            {else /}
+            <img src="{$img_site}/static/upload/book/{$book.id}/cover.jpg" class="fl">
+            {/if}
         </a>
         <div class="d_he_r">
             <a class="d_he_ra" href="javascript:;">{$book.book_name}</a>
@@ -62,7 +66,11 @@
         {volist name="recommand" id="vo"}
         <div class="infobox">
             <a href="/book/{$vo.id}" class="gimg">
-                <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg">
+                {if isset($vo.cover_url)}
+                <img src="{$vo.cover_url}" class="fl">
+                {else /}
+                <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg" class="fl">
+                {/if}
             </a>
             <a href="/book/{$vo.id}" class="ginfo">
                 <span class="gname">{$vo.book_name}</span>

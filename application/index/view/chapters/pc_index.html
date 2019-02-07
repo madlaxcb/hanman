@@ -113,8 +113,12 @@
     </div>
     <div class="r_img ">
         {volist name="photos" id="vo"}
+        {if isset($vo.img_url)}
+        <img class="lazy" data-original="{$vo.img_url}" src="https://s1.ax1x.com/2018/12/27/FRm2Ks.jpg">
+        {else /}
         <img class="lazy" data-original="{$img_site}/static/upload/book/{$chapter.book.id}/{$chapter.id}/{$vo.id}.jpg"
              src="https://s1.ax1x.com/2018/12/27/FRm2Ks.jpg">
+        {/if}
        {/volist}
         <!--免责声明-->
         <div class="read_dis">

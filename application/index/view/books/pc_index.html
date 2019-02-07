@@ -7,7 +7,11 @@
 <div class="d_bgs">
     <div class="m1100 d_bgi">
         <a class="fl d_bgi_href" href="javascript:;">
-            <img src="{$img_site}/static/upload/book/{$book.id}/cover.jpg"></a>
+            {if isset($book.cover_url)}
+            <img src="{$book.cover_url}" class="fl">
+            {else /}
+            <img src="{$img_site}/static/upload/book/{$book.id}/cover.jpg" class="fl">
+            {/if}
         <div class="d_bg">
             <div class="d_bg_t">
                 <a href="javascript:;">{$book.book_name}</a>
@@ -81,7 +85,11 @@
                         {volist name="recommand" id="vo"}
                         <li>
                             <a href="/book/{$vo.id}">
-                                <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg">
+                                {if isset($vo.cover_url)}
+                                <img src="{$vo.cover_url}" class="fl">
+                                {else /}
+                                <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg" class="fl">
+                                {/if}
                                 <h3>{$vo.book_name}</h3>
                                 <p>{$vo.summary}</p>
                             </a>
@@ -100,7 +108,11 @@
                     {volist name="updates" id="vo"}
                     <li>
                         <a href=/book/{$vo.id}">
-                            <img class="fl" src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg">
+                            {if isset($vo.cover_url)}
+                            <img src="{$vo.cover_url}" class="fl">
+                            {else /}
+                            <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg" class="fl">
+                            {/if}
                             <div class="m_ph_d">
                                 <h2 class="m_ph_h2">{$vo.book_name}</h2>
                                 <p class="m_ph_p1">{$vo.summary}</p>

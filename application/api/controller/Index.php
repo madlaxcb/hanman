@@ -45,16 +45,8 @@ class Index extends Controller
                 $book->tags = $data['tags'];
                 $book->src = $data['src'];
                 $book->end = $data['end'];
+                $book->cover_url = $data['cover_url'];
                 $book->save();
-                $dir = App::getRootPath().'/public/static/upload/book/' . $book->id;
-                if (!file_exists($dir)) {
-                    mkdir($dir, 0777, true);
-                }
-                $cover = $request->file('cover');
-                if ($cover) {
-                    $cover->validate(['size' => 1024000, 'ext' => 'jpg,png,gif'])
-                        ->move($dir,'cover.jpg');
-                }
             }
             $map[] = ['chapter_name', '=', $data['chapter_name']];
             $map[] = ['book_id', '=', $book->id];
@@ -71,12 +63,7 @@ class Index extends Controller
                 $chapter->order = $lastChapterOrder + 1;
                 $chapter->save();
             }
-            $pic_dir = App::getRootPath() . 'public/static/upload/book/'.$book->id.'/'.$chapter->id;
-            if (!file_exists($pic_dir)) {
-                mkdir($pic_dir, 0777, true);
-            }
-             preg_match_all('/src=\"(.+?)\"/is', $data['images'], $aurl);
-            $img_urls = $aurl[1];
+            $img_urls = explode('|',$data['images']);
             foreach ($img_urls as $img_url){
                 $photo = new Photo();
                 $photo->chapter_id  = $chapter->id;
@@ -86,9 +73,8 @@ class Index extends Controller
                     $lastOrder = $lastPhoto->order;
                 }
                 $photo->order = $lastOrder + 1;
+                $photo->img_url = $img_url;
                 $photo->save();
-                $file = file_get_contents($img_url);
-                file_put_contents($pic_dir.'/'.$photo->id.'.jpg',$file);
             }
         }
     }
