@@ -43,8 +43,13 @@
                 </div>
                 <div class="mt-20 clearfix">
                     {volist name="photos" id="vo"}
+                    {if isset($vo.img_url)}
                     <img onclick="del(this,{$vo.id})" style="max-width: 130px;height: auto"
-                         src="{$img_site}/static/upload/book/{$book_id}/{$chapter_id}/{$vo.id}.jpg"/>
+                         src="{$img_url}" />
+                    {else /}
+                    <img onclick="del(this,{$vo.id})" style="max-width: 130px;height: auto"
+                         src="{$img_site}/static/upload/book/{$book_id}/{$chapter_id}/{$vo.id}.jpg" />
+                    {/if}
                     {/volist}
                 </div>
             </div>

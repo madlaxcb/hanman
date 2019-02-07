@@ -37,7 +37,7 @@ CREATE TABLE `xwx_banner` (
   `update_time` int(11) NULL,
   `book_id` int(11) NOT NULL,
   `title` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`) USING BTREE,
+  PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
@@ -78,7 +78,7 @@ CREATE TABLE `xwx_chapter` (
   PRIMARY KEY (`id`) USING BTREE,
   KEY `chapter_name` (`chapter_name`(250)) USING BTREE,
   KEY `book_id` (`book_id`) USING HASH,
-  KEY `order` (`order`) USING HASH,
+  KEY `order` (`order`) USING HASH
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
@@ -107,7 +107,7 @@ CREATE TABLE `xwx_tags` (
   `create_time` int(11) NULL,
   `update_time` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  UNIQUE KEY `tag_name` (`tag_name`) USING BTREE,
+  UNIQUE KEY `tag_name` (`tag_name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
