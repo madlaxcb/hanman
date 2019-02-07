@@ -159,6 +159,26 @@
     $("img.lazy").lazyload({threshold: 180});
 </script>
 <script>
+    bookshelf = [];
+    bookshelf[0] = {$chapter.book_id};
+    bookshelf[1] = '{$chapter.book.book_name}';
+    bookshelf[2] = {$chapter.id};
+    bookshelf[3] = '{$chapter.chapter_name}';
+    bookshelf[4] = '{$chapter.book.author.author_name}';
+    {if isset($chapter.book.cover_url)}
+        bookshelf[5] = '{$chapter.book.cover_url}';
+    {/if}
+    window.localStorage.setItem('manhua_id' + {$chapter.book_id}, JSON.stringify(bookshelf));
+    document.body.oncopy = function (){return false;}; //阻止复制
+    document.body.onselectstart = function() {return false;}; //阻止选中
+    document.oncontextmenu = function() {return false;}; //阻止菜单弹出
+    if(document.images){
+        for(i=0;i<document.images.length;i++){
+            document.images[i].onmousedown = function() {return false;};
+        }
+    }
+</script>
+<script>
     function cpage(value) {
         window.location.href = "/chapter/" + value;
     }
