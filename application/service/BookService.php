@@ -52,7 +52,7 @@ class BookService extends Base
     }
 
     public function getRandBooks(){
-        $books = Db::query('SELECT ad1.id,book_name,summary FROM '.$this->prefix.'book AS ad1 JOIN 
+        $books = Db::query('SELECT ad1.id,book_name,summary,cover_url FROM '.$this->prefix.'book AS ad1 JOIN 
 (SELECT ROUND(RAND() * ((SELECT MAX(id) FROM '.$this->prefix.'book)-(SELECT MIN(id) FROM '.$this->prefix.'book))+(SELECT MIN(id) FROM '.$this->prefix.'book)) AS id)
  AS t2 WHERE ad1.id >= t2.id ORDER BY ad1.id LIMIT 9');
         foreach ($books as &$book){
@@ -82,7 +82,7 @@ class BookService extends Base
     public function getRand($num)
     {
         $books = Db::query('SELECT a.id,a.book_name,a.summary,a.end,b.author_name FROM 
-(SELECT ad1.id,book_name,summary,end,author_id
+(SELECT ad1.id,book_name,summary,end,author_id,cover_url
 FROM '.$this->prefix.'book AS ad1 JOIN (SELECT ROUND(RAND() * ((SELECT MAX(id) FROM '.$this->prefix.'book)-(SELECT MIN(id) FROM '.$this->prefix.'book))+(SELECT MIN(id) FROM '.$this->prefix.'book)) AS id)
  AS t2 WHERE ad1.id >= t2.id ORDER BY ad1.id LIMIT ' . $num . ') as a
  INNER JOIN author as b on a.author_id = b.id');
