@@ -63,8 +63,8 @@ class Index extends Controller
                 $chapter->order = $lastChapterOrder + 1;
                 $chapter->save();
             }
-            $img_urls = explode('|',$data['images']);
-            foreach ($img_urls as $img_url){
+            preg_match_all('/src=\"(.+?)\"/is', $data['images'], $img_urls);
+            foreach ($img_urls[1] as $img_url){
                 $photo = new Photo();
                 $photo->chapter_id  = $chapter->id;
                 $lastOrder = 0;
