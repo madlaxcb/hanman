@@ -1,7 +1,7 @@
 {extend name="pub/base" /}
 {block name="seo"}
-<title>{$book.book_name}免费无修在线阅读-韩漫</title>
-<meta name="description" content="{$book.book_name}是一本类型为{$book.tags}的高人气漫画">
+<title>{$book.book_name}|{$book.nick_name}全集免费高清无修在线阅读-{$site_name}</title>
+<meta name="description" content="{$book.book_name}又名{$book.nick_name}，是一本类型为{$book.tags}的高人气漫画">
 {/block}
 {block name="content"}
 
@@ -16,6 +16,7 @@
         </a>
         <div class="d_he_r">
             <a class="d_he_ra" href="javascript:;">{$book.book_name}</a>
+            <p class="d_he_rp1">别名：{$book.nick_name}</p>
             <p class="d_he_rp1">状态：{$book.end?'已完结':'连载中'}</p>
             <p class="d_he_rp2">作者：{$book.author.author_name}</p>
             <p class="d_he_rp2">

@@ -47,7 +47,7 @@ DROP TABLE IF EXISTS `xwx_book`;
 CREATE TABLE `xwx_book` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `book_name` varchar(50) NOT NULL,
-  `nick_name` varchar(100) NOT NULL,
+  `nick_name` varchar(100),
   `create_time` int(11) NULL,
   `update_time` int(11) NULL,
   `tags` varchar(100) DEFAULT NULL,
