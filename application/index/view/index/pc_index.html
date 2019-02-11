@@ -41,10 +41,10 @@
                 {volist name="newest" id="vo"}
                 <li>
                     <a href="/book/{$vo.id}">
-                        {if isset($vo.cover_url)}
-                        <img src="{$vo.cover_url}">
-                        {else /}
+                        {if empty($vo.cover_url)}
                         <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg">
+                        {else /}
+                        <img src="{$vo.cover_url}">
                         {/if}
                         <h3>{$vo.book_name}</h3>
                         <p>更新于：<span>{$vo.update_time|date='Y-m-d H:i'}</span></p>
@@ -63,11 +63,11 @@
                     {volist name="newest" id="vo"}
                     <li>
                         <a href="/book/{$vo.id}">
-                            {if isset($vo.cover_url)}
-                            <img src="{$vo.cover_url}" class="fl">
-                            {else /}
-                            <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg" class="fl">
-                            {/if}
+                            {if empty($vo.cover_url)}
+                        <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg" class="fl">
+                        {else /}
+                        <img src="{$vo.cover_url}" class="fl">
+                        {/if}
                             <div class="m_ph_d">
                                 <h2 class="m_ph_h2">{$vo.book_name}</h2>
                                 <p class="m_ph_p1">{$vo.summary}</p>
@@ -94,10 +94,10 @@
                 {volist name="hot" id="vo"}
                 <li>
                     <a href="/book/{$vo.id}">
-                        {if isset($vo.cover_url)}
-                        <img src="{$vo.cover_url}">
-                        {else /}
+                        {if empty($vo.cover_url)}
                         <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg">
+                        {else /}
+                        <img src="{$vo.cover_url}">
                         {/if}
                         <h3>{$vo.book_name}</h3>
                         <p>更新于：<span>{$vo.update_time|date='Y-m-d H:i'}</span></p>
@@ -116,11 +116,11 @@
                     {volist name="hot" id="vo"}
                     <li>
                         <a href="/book/{$vo.id}">
-                            {if isset($vo.cover_url)}
-                            <img src="{$vo.cover_url}" class="fl">
-                            {else /}
-                            <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg" class="fl">
-                            {/if}
+                            {if empty($vo.cover_url)}
+                        <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg" class="fl">
+                        {else /}
+                        <img src="{$vo.cover_url}" class="fl">
+                        {/if}
                             <div class="m_ph_d">
                                 <h2 class="m_ph_h2">{$vo.book_name}</h2>
                                 <p class="m_ph_p1">{$vo.summary}</p>
@@ -147,10 +147,10 @@
                 {volist name="ends" id="vo"}
                 <li>
                     <a href="/book/{$vo.id}">
-                        {if isset($vo.cover_url)}
-                        <img src="{$vo.cover_url}">
-                        {else /}
+                        {if empty($vo.cover_url)}
                         <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg">
+                        {else /}
+                        <img src="{$vo.cover_url}">
                         {/if}
                         <h3>{$vo.book_name}</h3>
                         <p>更新于：<span>{$vo.update_time|date='Y-m-d H:i'}</span></p>
@@ -169,11 +169,11 @@
                     {volist name="ends" id="vo"}
                     <li>
                         <a href="/book/{$vo.id}">
-                            {if isset($vo.cover_url)}
-                            <img src="{$vo.cover_url}" class="fl">
-                            {else /}
-                            <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg" class="fl">
-                            {/if}
+                            {if empty($vo.cover_url)}
+                        <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg" class="fl">
+                        {else /}
+                        <img src="{$vo.cover_url}" class="fl">
+                        {/if}
                             <div class="m_ph_d">
                                 <h2 class="m_ph_h2">{$vo.book_name}</h2>
                                 <p class="m_ph_p1">{$vo.summary}</p>

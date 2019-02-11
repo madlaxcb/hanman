@@ -85,10 +85,10 @@
                         {volist name="recommand" id="vo"}
                         <li>
                             <a href="/book/{$vo.id}">
-                                {if isset($vo.cover_url)}
-                                <img src="{$vo.cover_url}" class="fl">
-                                {else /}
+                                {if empty($vo.cover_url)}
                                 <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg" class="fl">
+                                {else /}
+                                <img src="{$vo.cover_url}" class="fl">
                                 {/if}
                                 <h3>{$vo.book_name}</h3>
                                 <p>{$vo.summary}</p>
@@ -108,10 +108,10 @@
                     {volist name="updates" id="vo"}
                     <li>
                         <a href=/book/{$vo.id}">
-                            {if isset($vo.cover_url)}
-                            <img src="{$vo.cover_url}" class="fl">
-                            {else /}
+                            {if empty($vo.cover_url)}
                             <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg" class="fl">
+                            {else /}
+                            <img src="{$vo.cover_url}" class="fl">
                             {/if}
                             <div class="m_ph_d">
                                 <h2 class="m_ph_h2">{$vo.book_name}</h2>

@@ -169,11 +169,11 @@
 <!--漫画内容-->
 <div class="l_cen">
     {volist name="photos" id="vo"}
-    {if isset($vo.img_url)}
-    <img class="lazy" data-original="{$vo.img_url}" src="https://s1.ax1x.com/2018/12/27/FRm2Ks.jpg">
-    {else /}
+    {if empty($vo.img_url)}
     <img class="lazy" data-original="{$img_site}/static/upload/book/{$chapter.book.id}/{$chapter.id}/{$vo.id}.jpg"
-         src="https://s1.ax1x.com/2018/12/27/FRm2Ks.jpg">
+    src="https://s1.ax1x.com/2018/12/27/FRm2Ks.jpg">
+    {else /}
+    <img class="lazy" data-original="{$vo.img_url}" src="https://s1.ax1x.com/2018/12/27/FRm2Ks.jpg">  
     {/if}
     {/volist}
 
@@ -207,8 +207,9 @@
     bookshelf[2] = {$chapter.id};
     bookshelf[3] = '{$chapter.chapter_name}';
     bookshelf[4] = '{$chapter.book.author.author_name}';
-    {if isset($chapter.book.cover_url)}
-        bookshelf[5] = '{$chapter.book.cover_url}';
+    {if empty($chapter.book.cover_url)}
+    {else /}
+    bookshelf[5] = '{$chapter.book.cover_url}';
     {/if}
     window.localStorage.setItem('manhua_id' + {$chapter.book_id}, JSON.stringify(bookshelf));
     document.body.oncopy = function (){return false;}; //阻止复制

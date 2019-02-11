@@ -36,10 +36,10 @@
             {volist name="newest" id="vo"}
             <div class="swiper-slide" style="width: 87.3684px; margin-right: 10px;">
                 <a href="/book/{$vo.id}" class="m_recently_a">
-                    {if isset($vo.cover_url)}
-                    <img src="{$vo.cover_url}" class="fl">
-                    {else /}
+                    {if empty($vo.cover_url)}
                     <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg" class="fl">
+                    {else /}
+                    <img src="{$vo.cover_url}" class="fl">
                     {/if}
                     <h3>{$vo.book_name}</h3>
                     <p>更新至第{$vo.chapter_count}话</p>
@@ -60,10 +60,10 @@
             {volist name="hot" id="vo"}
             <div class="swiper-slide" style="width: 87.3684px; margin-right: 10px;">
                 <a href="/book/{$vo.id}" class="m_recently_a">
-                    {if isset($vo.cover_url)}
-                    <img src="{$vo.cover_url}" class="fl">
-                    {else /}
+                    {if empty($vo.cover_url)}
                     <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg" class="fl">
+                    {else /}
+                    <img src="{$vo.cover_url}" class="fl">
                     {/if}
                     <h3>{$vo.book_name}</h3>
                     <p>更新至第{$vo.chapter_count}话</p>
@@ -84,10 +84,10 @@
             {volist name="ends" id="vo"}
             <div class="swiper-slide" style="width: 87.3684px; margin-right: 10px;">
                 <a href="/book/{$vo.id}" class="m_recently_a">
-                    {if isset($vo.cover_url)}
-                    <img src="{$vo.cover_url}" class="fl">
-                    {else /}
+                    {if empty($vo.cover_url)}
                     <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg" class="fl">
+                    {else /}
+                    <img src="{$vo.cover_url}" class="fl">
                     {/if}
                     <h3>{$vo.book_name}</h3>
                     <p>更新至第{$vo.chapter_count}话</p>
@@ -114,10 +114,10 @@
             {volist name="newest" id="vo"}
             <li>
                 <a href="/book/{$vo.id}">
-                    {if isset($vo.cover_url)}
-                    <img src="{$vo.cover_url}" class="fl">
-                    {else /}
+                    {if empty($vo.cover_url)}
                     <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg" class="fl">
+                    {else /}
+                    <img src="{$vo.cover_url}" class="fl">
                     {/if}
                     <div class="m_ph_d">
                         <h2 class="m_ph_h2">{$vo.book_name}</h2>
@@ -132,10 +132,10 @@
             {volist name="hot" id="vo"}
             <li>
                 <a href="/book/{$vo.id}">
-                    {if isset($vo.cover_url)}
-                    <img src="{$vo.cover_url}" class="fl">
-                    {else /}
+                    {if empty($vo.cover_url)}
                     <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg" class="fl">
+                    {else /}
+                    <img src="{$vo.cover_url}" class="fl">
                     {/if}
                     <div class="m_ph_d">
                         <h2 class="m_ph_h2">{$vo.book_name}</h2>
@@ -150,10 +150,10 @@
             {volist name="ends" id="vo"}
             <li>
                 <a href="/book/{$vo.id}">
-                    {if isset($vo.cover_url)}
-                    <img src="{$vo.cover_url}" class="fl">
-                    {else /}
+                    {if empty($vo.cover_url)}
                     <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg" class="fl">
+                    {else /}
+                    <img src="{$vo.cover_url}" class="fl">
                     {/if}
                     <div class="m_ph_d">
                         <h2 class="m_ph_h2">{$vo.book_name}</h2>
