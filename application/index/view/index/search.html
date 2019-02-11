@@ -32,7 +32,11 @@
     {volist name="books" id="vo"}
     <li>
         <a href="/book/{$vo.id}">
+            {if empty($vo.cover_url)}
             <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg" class="fl">
+            {else /}
+            <img src="{$vo.cover_url}" class="fl">
+            {/if}
             <div class="sr_tit">
                 <h2>{$vo.book_name}</h2>
                 <h3>作者：{$vo.author.author_name}</h3>

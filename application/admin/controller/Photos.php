@@ -12,7 +12,6 @@ use app\model\Book;
 use app\model\Chapter;
 use app\model\Photo;
 use app\service\PhotoService;
-use think\Controller;
 use think\facade\App;
 use think\Request;
 

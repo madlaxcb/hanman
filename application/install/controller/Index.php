@@ -101,6 +101,7 @@ class Index extends Controller
                 'hostport|数据库端口' => 'require|number',
                 'database|数据库名称' => 'require',
                 'username|数据库账号' => 'require',
+                'password|数据库密码' => 'require',
                 'prefix|数据库前缀' => 'require|regex:^[a-z0-9]{1,20}[_]{1}',
                 'cover|覆盖数据库' => 'require|in:0,1',
             ];
@@ -163,13 +164,14 @@ class Index extends Controller
         if (empty($config['hostname']) || empty($config['database']) || empty($config['username'])) {
             return $this->error('请先点击测试数据库连接！');
         }
-        if (empty($param['username']) || empty($param['password'])) {
-            return $this->error('请填写管理账号和密码！');
+        if (empty($param['username']) || empty($param['password']) || empty($param['salt'])) {
+            return $this->error('请填写管理账号、密码、密码盐！');
         }
 
         $rule = [
             'username|管理员账号' => 'require|alphaNum',
             'password|管理员密码' => 'require|length:6,20',
+            'salt|密码盐' => 'require|alphaNum'
         ];
 
         $validate = $this->validate($param, $rule);
@@ -189,7 +191,7 @@ class Index extends Controller
                     try {
                         Db::execute($v);
                     } catch(\Exception $e) {
-                        dump('导入SQL失败，请检查install.sql的语句是否正确。'. $e);
+                        halt('导入SQL失败，请检查install.sql的语句是否正确。'. $e);
                     }
                 }
             }
@@ -197,7 +199,7 @@ class Index extends Controller
         // 注册管理员账号
         $data = [
             'username' => $param['username'],
-            'password' => $param['password'].config('site.salt'),
+            'password' => $param['password'].$param['salt'],
             'last_login_time' => time(),
             'last_login_ip' => $this->request->ip(),
         ];

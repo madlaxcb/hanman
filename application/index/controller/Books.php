@@ -33,7 +33,7 @@ class Books extends Base
         $recommand = $this->bookService->getRandBooks();
         $start = cache('book_start' . $id);
         if ($start == false) {
-            $db = Db::query('SELECT id FROM xwx_chapter WHERE book_id = ' . $request->param('id') . ' ORDER BY id LIMIT 1');
+            $db = Db::query('SELECT id FROM '.$this->prefix.'chapter WHERE book_id = ' . $request->param('id') . ' ORDER BY id LIMIT 1');
             $start = $db ? $db[0]['id'] : -1;
             cache('book_start' . $id, $start);
         }

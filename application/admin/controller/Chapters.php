@@ -49,26 +49,29 @@ class Chapters extends BaseAdmin
     public function save(Request $request)
     {
         $data = $request->param();
-        if(empty($data['chapter_name'])){
-            $this->error('没有填写章节名');
-        }
-        $map[] = ['chapter_name','=',$data['chapter_name']];
-        $map[] = ['book_id','=',$data['book_id']];
-        $chapter = Chapter::where($map)->find();
-        if ($chapter){
-            $this->error('存在同名章节');
-        }
-        $result = Chapter::create($data);
-        if ($result){
-            $param = [
-                "id" => $data["book_id"],
-                "last_time" => time()
-            ];
-            Book::update($param);
-            $this->success('添加成功',$data['returnUrl'],'',1);
+        $validate = new \app\admin\validate\Chapter();
+        if ($validate->check($data)){
+            $map[] = ['chapter_name','=',$data['chapter_name']];
+            $map[] = ['book_id','=',$data['book_id']];
+            $chapter = Chapter::where($map)->find();
+            if ($chapter){
+                $this->error('存在同名章节');
+            }
+            $result = Chapter::create($data);
+            if ($result){
+                $param = [
+                    "id" => $data["book_id"],
+                    "last_time" => time()
+                ];
+                Book::update($param);
+                $this->success('添加成功',$data['returnUrl'],'',1);
+            }else{
+                $this->error('新增失败');
+            }
         }else{
-            $this->error('新增失败');
+            $this->error($validate->getError());
         }
+
     }
 
     public function edit($id)

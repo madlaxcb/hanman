@@ -78,4 +78,10 @@ class Tag extends BaseAdmin
         }
         $this->success('编辑成功',$returnUrl,'',1);
     }
+
+    public function delete($id)
+    {
+        Tags::destroy($id);
+        return ['err' => 0,'msg' => '删除成功'];
+    }
 }

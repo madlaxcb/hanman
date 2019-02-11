@@ -69,16 +69,23 @@
         <div class="layui-form-item">
             <label class="layui-form-label">管理员账号</label>
             <div class="layui-input-inline w200">
-                <input type="text" class="layui-input" name="username" lay-verify="title">
+                <input type="text" class="layui-input" name="username">
             </div>
             <div class="layui-form-mid layui-word-aux">管理员账号最少4位</div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">管理员密码</label>
             <div class="layui-input-inline w200">
-                <input type="password" class="layui-input" name="password" lay-verify="title">
+                <input type="password" class="layui-input" name="password">
             </div>
             <div class="layui-form-mid layui-word-aux">保证密码最少6位</div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">密码盐</label>
+            <div class="layui-input-inline w200">
+                <input type="text" class="layui-input" name="salt">
+            </div>
+            <div class="layui-form-mid layui-word-aux">随便输入几个字符</div>
         </div>
         <div class="step-btns">
             <a href="?step=2" class="layui-btn layui-btn-primary layui-btn-big fl">返回上一步</a>

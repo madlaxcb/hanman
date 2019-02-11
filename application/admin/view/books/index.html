@@ -17,7 +17,7 @@
         <div class="panel">
             <div class="panel-body">
                 <div class="text-c">
-                    <input type="text" placeholder=" 漫画名称" style="width:250px" class="input-text">
+                    <input type="text" placeholder=" 漫画名称" style="width:250px" id="searchParam" class="input-text">
                     <button type="submit" class="btn btn-success" onclick="search()"><i
                             class="Hui-iconfont">&#xe665;</i> 查询
                     </button>
@@ -59,8 +59,12 @@
                             <td>{$vo.id}</td>
                             <td>{$vo.book_name}</td>
                             <td>
+                                {if empty($vo.cover_url)}
                                 <img width="50%" class="picture-thumb"
-                                     src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg">
+                                     src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg">                                
+                                {else /}
+                                <img width="50%" class="picture-thumb" src="{$vo.cover_url}">
+                                {/if}
                             </td>
                             <td>
                                 {$vo.chapter_count}

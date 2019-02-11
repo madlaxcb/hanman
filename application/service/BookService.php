@@ -7,11 +7,12 @@
  */
 
 namespace app\service;
+use app\index\controller\Base;
 use app\model\Book;
 use app\model\Chapter;
 use think\Db;
 
-class BookService
+class BookService extends Base
 {
     public function getPagedBooks($order = 'id',$where = '1=1',$num = 5)
     {
@@ -51,9 +52,9 @@ class BookService
     }
 
     public function getRandBooks(){
-        $books = Db::query("SELECT ad1.id,book_name,summary FROM xwx_book AS ad1 JOIN 
-(SELECT ROUND(RAND() * ((SELECT MAX(id) FROM xwx_book)-(SELECT MIN(id) FROM xwx_book))+(SELECT MIN(id) FROM xwx_book)) AS id)
- AS t2 WHERE ad1.id >= t2.id ORDER BY ad1.id LIMIT 9");
+        $books = Db::query('SELECT ad1.id,book_name,summary,cover_url FROM '.$this->prefix.'book AS ad1 JOIN 
+(SELECT ROUND(RAND() * ((SELECT MAX(id) FROM '.$this->prefix.'book)-(SELECT MIN(id) FROM '.$this->prefix.'book))+(SELECT MIN(id) FROM '.$this->prefix.'book)) AS id)
+ AS t2 WHERE ad1.id >= t2.id ORDER BY ad1.id LIMIT 9');
         foreach ($books as &$book){
             $book['chapter_count'] = Chapter::where('book_id','=',$book['id'])->count();
         }
@@ -81,8 +82,8 @@ class BookService
     public function getRand($num)
     {
         $books = Db::query('SELECT a.id,a.book_name,a.summary,a.end,b.author_name FROM 
-(SELECT ad1.id,book_name,summary,end,author_id
-FROM xwx_book AS ad1 JOIN (SELECT ROUND(RAND() * ((SELECT MAX(id) FROM xwx_book)-(SELECT MIN(id) FROM xwx_book))+(SELECT MIN(id) FROM xwx_book)) AS id)
+(SELECT ad1.id,book_name,summary,end,author_id,cover_url
+FROM '.$this->prefix.'book AS ad1 JOIN (SELECT ROUND(RAND() * ((SELECT MAX(id) FROM '.$this->prefix.'book)-(SELECT MIN(id) FROM '.$this->prefix.'book))+(SELECT MIN(id) FROM '.$this->prefix.'book)) AS id)
  AS t2 WHERE ad1.id >= t2.id ORDER BY ad1.id LIMIT ' . $num . ') as a
  INNER JOIN author as b on a.author_id = b.id');
         return $books;
@@ -94,6 +95,6 @@ FROM xwx_book AS ad1 JOIN (SELECT ROUND(RAND() * ((SELECT MAX(id) FROM xwx_book)
     }
 
     public function search($keyword){
-        return Db::query("select * from xwx_book where match(book_name,summary) against ('".$keyword."' IN NATURAL LANGUAGE MODE)");
+        return Db::query("select * from ".$this->prefix."book where match(book_name,summary) against ('".$keyword."' IN NATURAL LANGUAGE MODE)");
     }
 }
