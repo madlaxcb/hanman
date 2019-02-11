@@ -189,7 +189,7 @@ class Index extends Controller
                     try {
                         Db::execute($v);
                     } catch(\Exception $e) {
-                        dump('导入SQL失败，请检查install.sql的语句是否正确。'. $e);
+                        halt('导入SQL失败，请检查install.sql的语句是否正确。'. $e);
                     }
                 }
             }

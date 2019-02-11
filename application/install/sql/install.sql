@@ -51,7 +51,7 @@ CREATE TABLE `xwx_book` (
   `create_time` int(11) DEFAULT '0',
   `update_time` int(11) DEFAULT '0',
   `tags` varchar(100) DEFAULT '',
-  `summary` text DEFAULT '',
+  `summary` text,
   `end` tinyint(4) DEFAULT '0',
   `author_id` int(11) NOT NULL,
   `click` bigint(20) DEFAULT '0',

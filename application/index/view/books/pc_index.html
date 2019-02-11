@@ -7,10 +7,10 @@
 <div class="d_bgs">
     <div class="m1100 d_bgi">
         <a class="fl d_bgi_href" href="javascript:;">
-            {if isset($book.cover_url)}
-            <img src="{$book.cover_url}" class="fl">
-            {else /}
+            {if empty($book.cover_url)}
             <img src="{$img_site}/static/upload/book/{$book.id}/cover.jpg" class="fl">
+            {else /}
+            <img src="{$book.cover_url}" class="fl">           
             {/if}
         <div class="d_bg">
             <div class="d_bg_t">
