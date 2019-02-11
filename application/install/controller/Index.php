@@ -158,7 +158,7 @@ class Index extends Controller
      */
     private function step5()
     {
-        $param = $this->request->only(['username','password']);
+        $param = $this->request->only(['username','password','salt']);
 
         $config = include App::getRootPath() . 'config/database.php';
         if (empty($config['hostname']) || empty($config['database']) || empty($config['username'])) {
