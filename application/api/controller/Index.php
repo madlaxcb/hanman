@@ -26,6 +26,10 @@ class Index extends Controller
     {
         if ($request->isPost()) {
             $data = $request->param();
+            $api_key = trim($data['api_key']);
+            if ($api_key != trim(config('site.api_key'))){
+                return 'api_key错误';
+            }
             $book = Book::where('book_name', '=', trim($data['book_name']))->find();
             if (!$book) {
                 $author = Author::where('author_name', '=', trim($data['author']))->find();
@@ -37,6 +41,7 @@ class Index extends Controller
                 $book = new Book();
                 $book->author_id = $author->id;
                 $book->book_name = trim($data['book_name']);
+                $book->nick_name = trim($data['nick_name']);
                 $book->tags = trim($data['tags']);
                 $book->src = trim($data['src']);
                 $book->end = trim($data['end']);

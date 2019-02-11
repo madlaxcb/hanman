@@ -18,12 +18,14 @@ class Index extends BaseAdmin
         $img_site = config('site.img_site');
         $salt = config('site.salt');
         $xzh = config('site.xzh');
+        $api_key = config('site.api_key');
         $this->assign([
             'site_name' => $site_name,
             'url' => $url,
             'img_site' => $img_site,
             'salt' => $salt,
-            'xzh' => $xzh
+            'xzh' => $xzh,
+            'api_key' => $api_key
         ]);
         return view();
     }
@@ -35,6 +37,7 @@ class Index extends BaseAdmin
         $img_site = input('img_site'); 
         $salt = input('salt');
         $xzh = input('xzh');
+        $api_key = input('api_key');
         $code = <<<INFO
         <?php
         return [
@@ -42,7 +45,8 @@ class Index extends BaseAdmin
             'img_site' => '{$img_site}',
             'site_name' => '{$site_name}',
             'xiongzhang' => '{$xzh}',
-            'salt' => '{$salt}'
+            'salt' => '{$salt}',
+            'api_key' => '{$api_key}'
         ];
 INFO;
         file_put_contents(App::getRootPath() . 'config/site.php', $code);
