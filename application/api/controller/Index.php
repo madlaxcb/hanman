@@ -43,6 +43,7 @@ class Index extends Controller
                 $book->book_name = trim($data['book_name']);
                 $book->nick_name = trim($data['nick_name']);
                 $book->tags = trim($data['tags']);
+                $book->summary = trim($data['summary']);
                 $book->src = trim($data['src']);
                 $book->end = trim($data['end']);
                 $book->cover_url = trim($data['cover_url']);
