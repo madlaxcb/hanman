@@ -1,6 +1,6 @@
 {extend name="pub/base" /}
 {block name="seo"}
-<title>韩漫-韩国漫画-少女漫画-恐怖漫画</title>
+<title>韩漫-免费无修漫画-{$site_name}</title>
 <meta name="description" content="韩漫为大家带来最新漫画大全，这里有超多漫画资源，无论是韩国漫画，少女漫画，还是恐怖漫画，总有一个让你酣畅淋漓">
 {/block}
 {block name="content"}
@@ -37,9 +37,9 @@
             <div class="swiper-slide" style="width: 87.3684px; margin-right: 10px;">
                 <a href="/book/{$vo.id}" class="m_recently_a">
                     {if empty($vo.cover_url)}
-                    <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg" class="fl">
+                    <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg">
                     {else /}
-                    <img src="{$vo.cover_url}" class="fl">
+                    <img src="{$vo.cover_url}">
                     {/if}
                     <h3>{$vo.book_name}</h3>
                     <p>更新至第{$vo.chapter_count}话</p>
@@ -61,9 +61,9 @@
             <div class="swiper-slide" style="width: 87.3684px; margin-right: 10px;">
                 <a href="/book/{$vo.id}" class="m_recently_a">
                     {if empty($vo.cover_url)}
-                    <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg" class="fl">
+                    <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg">
                     {else /}
-                    <img src="{$vo.cover_url}" class="fl">
+                    <img src="{$vo.cover_url}">
                     {/if}
                     <h3>{$vo.book_name}</h3>
                     <p>更新至第{$vo.chapter_count}话</p>
@@ -85,9 +85,9 @@
             <div class="swiper-slide" style="width: 87.3684px; margin-right: 10px;">
                 <a href="/book/{$vo.id}" class="m_recently_a">
                     {if empty($vo.cover_url)}
-                    <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg" class="fl">
+                    <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg">
                     {else /}
-                    <img src="{$vo.cover_url}" class="fl">
+                    <img src="{$vo.cover_url}">
                     {/if}
                     <h3>{$vo.book_name}</h3>
                     <p>更新至第{$vo.chapter_count}话</p>

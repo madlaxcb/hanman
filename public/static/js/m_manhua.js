@@ -2,7 +2,7 @@
     soft = {
         loadFn:function(){
             if($('.d_stickup2').length>0){
-                $('.d_stickup2').html('xiaomanquan');
+                $('.d_stickup2').html('111111');
             }
         },
         m_nav : function(){
@@ -52,7 +52,7 @@
             })
 
             //阅读完整小说
-            var copyTxt='paofuxiaoshuo';
+            var copyTxt='111111';
             $(".d_header").after('<div class="d_want"><p class="d_want_p"><textarea cols="1" rows="1" id="biao1"></textarea>想要看完整版漫画请根据下面步骤操作</p><ul class="d_want_ul"><li>1、点击复制按钮，进入微信</li><li>2、搜索框粘贴复制的文字进入公众号</li><li>3、搜索你想看的漫画名称即可阅读无删减版(完整版)漫画</li><span class="d_stickup">'+copyTxt+'</span><a class="d_copy" href="javascript:;">复制</a></ul></div>');
             //复制   点击d_copy  复制d_stickup的内容
             if($('.d_copy').length>0){
