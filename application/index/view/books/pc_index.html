@@ -86,9 +86,9 @@
                         <li>
                             <a href="/book/{$vo.id}">
                                 {if empty($vo.cover_url)}
-                                <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg" class="fl">
+                                <img src="{$img_site}/static/upload/book/{$vo.id}/cover.jpg">
                                 {else /}
-                                <img src="{$vo.cover_url}" class="fl">
+                                <img src="{$vo.cover_url}">
                                 {/if}
                                 <h3>{$vo.book_name}</h3>
                                 <p>{$vo.summary}</p>
