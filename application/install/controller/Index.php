@@ -158,7 +158,7 @@ class Index extends Controller
      */
     private function step5()
     {
-        $param = $this->request->only(['username','password']);
+        $param = $this->request->only(['username','password','salt']);
 
         $config = include App::getRootPath() . 'config/database.php';
         if (empty($config['hostname']) || empty($config['database']) || empty($config['username'])) {
@@ -208,6 +208,7 @@ class Index extends Controller
         if (!$res) {
             return $this->error('管理员账号设置失败:'.$res['msg']);
         }
+        $this->setSalt($param['salt']);
         $install = App::getRootPath() . 'application/install/install.lock';
         if (!is_dir(dirname($install))) {
             @mkdir(dirname($install),0777,true);
@@ -218,6 +219,25 @@ class Index extends Controller
         $this->success('系统安装成功,欢迎您使用小涴熊CMS建站.');
     }
 
+    private function setSalt($salt){
+        $site_name = config('site.site_name');
+        $url = config('site.url');
+        $img_site = config('site.img_site');
+        $xzh = config('site.xzh');
+        $api_key = config('site.api_key');
+        $code = <<<INFO
+        <?php
+        return [
+            'url' => '{$url}',
+            'img_site' => '{$img_site}',
+            'site_name' => '{$site_name}',
+            'xiongzhang' => '{$xzh}',
+            'salt' => '{$salt}',
+            'api_key' => '{$api_key}'
+        ];
+INFO;
+        file_put_contents(App::getRootPath() . 'config/site.php', $code);
+    }
     /**
      * 环境检测
      * @return array
